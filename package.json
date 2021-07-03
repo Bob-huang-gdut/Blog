@@ -6,8 +6,9 @@
   "author": "sibo_huang <18813295951@163.com>",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
   },
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.3",
