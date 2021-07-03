@@ -16,6 +16,6 @@ git commit -m 'deploy'
 # # 格式为：git push -f git@github.com:'用户名'/'仓库名'.git master
 # git push -f git@github.com:bob-huang-gdut/blog.git master
 # git push -f git@github.com:bob-huang-gdut/blog.git master
-git push -f git@github.com:bob-huang-gdut/bob-huang-gdut.github.io.git master
+git push -f git@github.com:bob-huang-gdut/blog.git master
 
 # cd -
