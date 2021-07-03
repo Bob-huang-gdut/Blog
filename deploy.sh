@@ -5,7 +5,7 @@ set -e
 yarn run build
 
 # 进入打包好的文件夹
-cd docs/.vuepress/dist
+cp -r docs/.vuepress/dist/* ./
 
 # 创建git的本地仓库，提交修改
 # git init
@@ -17,5 +17,3 @@ git commit -m 'deploy'
 # git push -f git@github.com:bob-huang-gdut/blog.git master
 # git push -f git@github.com:bob-huang-gdut/blog.git master
 git push -f git@github.com:bob-huang-gdut/blog.git master
-
-# cd -
