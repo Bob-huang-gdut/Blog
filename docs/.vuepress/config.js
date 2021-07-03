@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Bob首页', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
-  description: 'Bob的前端', // meta 中的描述文字，用于SEO
+  description: 'Bob的前端记录', // meta 中的描述文字，用于SEO
   // 注入到当前页面的 HTML <head> 中的标签
   base: '/blog/',
   head: [
@@ -51,7 +51,7 @@ module.exports = {
     sidebar: {
       '/pages/folder1/': [{
           title: '测试菜单1', // 一级菜单名称
-          collapsable: false, // false为默认展开菜单, 默认值true是折叠,
+          collapsable: true, // false为默认展开菜单, 默认值true是折叠,
           sidebarDepth: 1, //  设置侧边导航自动提取markdown文件标题的层级，默认1为h2层级
           children: [
             ['test1.md', '子菜单1'], //菜单名称为'子菜单1'，跳转至/pages/folder1/test1.md
