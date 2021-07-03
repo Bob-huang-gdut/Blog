@@ -1,8 +1,8 @@
 {
-  "name": "Blog",
+  "name": "blog",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Bob-huang-gdut/Blog.git",
+  "repository": "https://github.com/Bob-huang-gdut/blog.git",
   "author": "sibo_huang <18813295951@163.com>",
   "license": "MIT",
   "scripts": {
