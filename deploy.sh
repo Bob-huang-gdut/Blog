@@ -5,8 +5,11 @@ set -e
 yarn run build
 
 # 进入打包好的文件夹
+rm -rf assets
+rm -rf pages
+rm -f index.html
+rm -f 404.html
 cp -r docs/.vuepress/dist/* ./
-
 # 创建git的本地仓库，提交修改
 # git init
 git add -A
