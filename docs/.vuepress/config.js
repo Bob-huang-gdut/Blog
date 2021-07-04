@@ -91,12 +91,11 @@ module.exports = {
         title: '知识库',
         path: '/pages/knowledgeBase/',
       }, {
+        title: 'html',
+        path: '/pages/knowledgeBase/html/',
+      }, {
         title: 'css',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['css/1.md', 'css1']
-        ]
+        path: '/pages/knowledgeBase/css/',
       }, {
         title: '设计模式',
         collapsable: true,
@@ -111,9 +110,6 @@ module.exports = {
         children: [
           ['es6/1.md', 'es61'],
         ]
-      }, {
-        title: 'html',
-        path: '/pages/knowledgeBase/html/',
       }, {
         title: '小程序',
         collapsable: true,
