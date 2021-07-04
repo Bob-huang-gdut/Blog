@@ -21,10 +21,10 @@ module.exports = {
         text: '首页',
         link: '/'
       },
-      // {
-      //   text: '进阶·博文',
-      //   link: '/pages/question/css/'
-      // },
+      {
+        text: '进阶·博文',
+        link: '/pages/knowledgeBase/'
+      },
       {
         text: '每日·一题',
         link: '/pages/question/'
@@ -35,18 +35,18 @@ module.exports = {
         ariaLabel: '分类', //用于识别的label
         items: [{
             text: '文章',
-            link: '/pages/folder1/test1.md'
+            link: '/pages/knowledgeBase/test1.md'
           },
           //点击标签会跳转至link的markdown文件生成的页面
           {
             text: '琐碎',
-            link: '/pages/folder2/test4.md'
+            link: '/pages/knowledgeBase/test4.md'
           },
         ]
       },
       {
         text: '功能演示',
-        link: '/pages/folder1/test3.md'
+        link: '/pages/knowledgeBase/test3.md'
       },
       //格式三：跳转至外部网页，需http/https前缀
       {
