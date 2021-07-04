@@ -145,7 +145,18 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
 清除方式：
 
 - 父级盒子定义高度（height）;
-- 父元素::after的伪元素 clear: both；
+- 利用：after和：before来在元素内部插入两个元素块，从而达到清除浮动的效果。
+```css
+.clear { zoom:1; }
+.clear:after { 
+  content: ""; 
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+```
 - 最后一个浮动元素后面加一个div空标签，并且添加样式clear: both;
 - 包含浮动元素的父级标签添加样式overflow为hidden/both;
 - 父级div定义zoom;
@@ -170,7 +181,7 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
 后处理器， 如： postcss,通常被视为在完成的样式表中根据css规范处理css，让其更加有效。目前最常做的是给css属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
 
 其它css预处理器语言：Sass（Scss）, Less, Stylus, Turbine, Swithch css, CSS Cacheer, DT Css。
-## 13.::before 和 :after中双冒号和单冒号有什么区别？解释一下这2个伪元素的作用
+## 13.::before 和 :after中双冒号和单冒号有什么区别？
 
 - 冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。
 - ::before就是以一个子元素的存在，定义在元素主体内容之前的一个伪元素。并不存在于dom之中，只存在在页面之中。
@@ -362,3 +373,84 @@ li排列受到中间空白(回车/空格)等的影响，因为空白也属于字
 兼容性差异：
 
 - {border:none;}当border为“none”时似乎对IE6/7无效边框依然存在当border为“0”时，感觉比“none”更有效，所有浏览器都一致把边框隐藏。
+
+## 29.视差滚动效果以及如何实现？
+视差滚动（Parallax Scrolling）指网页滚动过程中，多层次的元素进行不同程度的移动，视觉上形成立体运动效果的网页展示技术（3D效果）。
+实现方式：
+
+- CSS3实现： 优点是开发时间相对较短，性能和开发效率比较好。缺点是不能兼容到低版本的浏览器；
+- JQuery实现：（通过控制不同层滚动速度，计算每一层的时间）优点是能兼容到各个版本，效果可控性好，缺点是开发起来对制作者的要求较高；
+- 插件实现方式： 例如使用parallax-scrolling,兼容性十分好；
+
+## 30.对BFC规范(块级格式化上下文：block formatting context)的理解
+BFC规定了内部的Block Box如何布局。一个页面是由很多个Box组成的，元素的类型和display属性，决定了这个Box的类型。不同类型的box，会参与不同的Formatting Context（决定如何渲染文档的容器），因此Box内的元素会以不用的方式渲染，也是就是说BFC内部的元素和外部的元素不会相互影响。
+
+定位方案：
+
+- 内部的box会在垂直方向上一个接一个的放置；
+- box垂直方向的距离由margin决定，属于同一个BFC的两个相邻Box的margin会发生重叠；
+- 每个元素margin box的左边，与包含块border box的左边相接触；
+- BFC的区域不会与float box重叠；
+- BFC是页面上的一个隔离的独立容器，容器里面的元素不会影响到外面的元素；
+- 计算BFC的高度时，浮动元素也会参与计算。
+
+满足下列条件之一就可以出发BFC：
+
+- 根元素变化，即html；
+- float的值不为none（默认）；
+- overflow的值不为visible（默认）；
+- display的值为inline-block, tabke-cell，table-caption；
+- position的值为absolute或fixed;
+
+## 31.元素竖向的百分比设定是相对于容器的高度吗？
+一般来说，子元素的百分比单位都是以父元素为依据。但是margin和padding例外。元素的height是相对于容器的高度，但是元素的margin和padding是相对于容器的宽度。
+
+## 32.元素竖向的百分比设定是相对于容器的高度吗？
+
+## 33.经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？
+- png24位的图片在ie浏览器上出现背景。解决： 做成png8；
+- 浏览器默认的margin和padding不同。 解决： 添加一个全局的*{ margin： 0; padding： 0;}；
+- IE下,可以使用获取常规属性的方法来获取自定义属性,也可以使用getAttribute()获取自定义属性，而Firefox下,只能使用getAttribute()获取自定义属性。 解决： 统一通过getAttribute()获取自定义属性；
+-  IE下,event对象有x,y属性,但是没有pageX,pageY属性，而Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。 解决： 使用mX(mX = event.x ? event.x : event.pageX;)来代替IE下的event.x或者Firefox下的event.pageX。
+
+## 34.box-sizing 常用的属性有哪些？分别有什么作用？
+- box-sizing: content-box; // 默认的标准(W3C)盒模型元素效果；
+- box-sizing: border-box; // 触发怪异(IE)盒模型元素的效果；
+- box-sizing: inherit; // 继承父元素 box-sizing 属性的值；
+
+## 35.怎么让Chrome支持小于12px的文字？
+```css
+.shrink {
+  -webkit-transform: scale(0.8);
+  -o-transform: scale(1);
+  display: inilne-block;
+}
+```
+
+## 36.css sprites是什么？如何使用？
+css精灵图，把一堆小的图片整合到一张大的图片（png）上，利用CSS的“background-image”，“background- repeat”``，“background-position”的组合进行背景定位background-position可以用数字能精确的定位出背景图片的位置，减轻服务器对图片的请求数量。
+
+优点：
+
+- 利用CSS Sprites能很好地减少网页的http请求，从而大大提高了页面的性能，这也是CSS Sprites最大的优点；
+- CSS Sprites能减少图片的字节，曾经多次比较过，把3张图片合并成1张图片的字节总是小于这3张图片的字节总和。
+
+缺点：
+
+- 在图片合并时，要把多张图片有序的、合理的合并成一张图片，还要留好足够的空间，防止板块内出现不必要的背景。在宽屏及高分辨率下的自适应页面，如果背景不够宽，很容易出现背景断裂；
+- CSSSprites在开发的时候相对来说有点麻烦，需要借助photoshop或其他工具来对每个背景单元测量其准确的位置。
+- 维护方面：CSS Sprites在维护的时候比较麻烦，页面背景有少许改动时，就要改这张合并的图片，无需改的地方尽量不要动，这样避免改动更多的CSS，如果在原来的地方放不下，又只能（最好）往下加图片，这样图片的字节就增加了，还要改动CSS。
+
+## 37.rem为什么可以缩放，以什么为基准？其优缺点有哪些？
+rem以html的字号为基准，比如2rem，而html的字号时16px，此时rem就是32px。可以写一段js让html根元素的字号随着浏览器宽度的变化而等比例变化，此时造成页面等比例缩放的现象。
+
+优点：
+- 相对于em的好处来说，不会发生逐渐增大或者减小字体尺寸的情况，因为始终集成根元素的字体大小；rem单位不仅仅是可应用于字体大小，还可以用- 于设定高度等其它大小，使页面可以适配不同屏幕尺寸。
+🍀注意： rem 一般只用于移动端。
+
+## 38.5条常见的Firefox和IE的脚本兼容的问题。
+- 绑定监听： IE是attatchEvent()  、 firefox是addEventListener();
+- 计算样式：IE是currentStyle、 firefox是getComputedSyle;
+- 滚动事件：IE是MouseWheel、 firefox是onmousewheel；
+- 表单元素：IE是 document.forms("formname“) ， firefox是document.forms["formname"]；
+- 事件对象： IE是window.event属性， firefox必须给事件处理函数注入实参event；
