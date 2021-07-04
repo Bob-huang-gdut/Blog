@@ -63,7 +63,7 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
   background: pink;
 }
 ```
-- // 方式3： 使用 定位 + margin-left 居中
+- 方式2： 使用 定位 + margin-left 居中
 ```css
 .content {
   width: 100px;
@@ -72,7 +72,7 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
   left: 50%;
 }
 ```
-- // 方式3： 使用 定位 + left 居中
+- 方式3： 使用 定位 + left 居中
 ```css
 .content {
   width: 100px;
@@ -81,7 +81,7 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
   left: 50%;
 }
 ```
-- // 方式4： 使用 flex
+- 方式4： 使用 flex
 ```css
 .content {
   display: flex;
@@ -288,16 +288,11 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
     <div class="box red" style="margin-bottom: -100px;"></div>
     <div class="box yellow" style="margin-top: 80px;"></div>
   </div>
-  <label for="Name">Number:</label> 
-  <input type=“text“ name="Name" id="Name"/>
 </html>
-<script>
-  console.log('%c⧭', 'color: #ff0000', 1);
-</script>
 ```
 :::
 
-### 22.display: none; 与 visibility: hidden; 有什么区别？
+## 22.display: none; 与 visibility: hidden; 有什么区别？
 
 联系： 这两个属性的值都可以让元素变得不可见；
 区别：
@@ -307,3 +302,63 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
 - 从重绘和重排角度看：修改常规流中元素的display通常会造成文档重排。修改visibility属性只会造成本元素的重绘
 
 读屏器不会读取display: none;元素内容；会读取visibility: hidden元素内容；
+
+## 23.css hack原理及常用hack有哪些？
+
+原理： 利用不同浏览器对CSS的支持和解析结果不一样编写针对特定浏览器的样式。
+
+常见的hack有： 属性hack、选择器hack、IE条件注释。
+
+## 24.外边距折叠(collapsing margins)
+
+毗邻的两个或多个margin会合并成一个margin，叫做外边距折叠。规则如下：
+- 两个或多个毗邻的普通流中的块元素垂直方向上的margin会折叠；
+- 浮动元素或inline-block元素或绝对定位元素的margin不会和垂直方向上的其他元素的margin折叠；
+- 创建了块级格式化上下文的元素，不会和它的子元素发生margin折叠；
+- 元素自身的margin-bottom和margin-top相邻时也会折叠；
+
+## 25.有哪几种隐藏元素的方法？
+- visibility: hidden; 这个属性只是简单的隐藏某个元素，但是元素占用的空间任然存在；
+- opacity: 0;``CSS3属性，设置0可以使一个元素完全透明；
+- position: absolute; 设置一个很大的 left 负值定位，使元素定位在可见区域之外；
+- display: none; 元素会变得不可见，并且不会再占用文档的空间；
+- transform: scale(0); 将一个元素设置为缩放无限小，元素将不可见，元素原来所在的位置将被保留；
+- ```<div hidden="hidden">``` HTML5属性,效果和display:none;相同，但这个属性用于记录一个元素的状态；
+- height: 0; 将元素高度设为 0 ，并消除边框；
+- filter: blur(0); CSS3属性，括号内的数值越大，图像高斯模糊的程度越大，到达一定程度可使图像消失（此处感谢小伙伴支持）；
+
+## 26.li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
+
+li排列受到中间空白(回车/空格)等的影响，因为空白也属于字符，会被应用样式占据空间，产生间隔。解决办法：
+
+- 在ul中用font-size：0（谷歌不支持）；可以使用letter-space：-3px;
+- 设置float：left；
+
+## 27.什么是回流（重排）和重绘以及其区别？
+
+- 回流（重排），reflow:当render tree中的一部分（或全部）因为**元素的规模尺寸，布局，隐藏等改变时**而需要重新构建；
+- 重绘（repaint）:当render tree中的一些元素需要更新属性，而这些属性只影响元素的外观，风格，而不会影响布局时，称其为重绘，例如颜色改变等。
+
+::: tip 注意
+:fire:每个页面至少需要引发一次重排+重绘，而且重排（回流）一定会引发重绘。
+:::
+
+触发重排（回流）的条件：
+
+- 增加或者删除可见的dom元素；
+- 元素的位置发生了改变；
+- 元素的尺寸发生了改变，例如边距，宽高等几何属性改变；
+- 内容改变，例如图片大小，字体大小改变等；
+- 页面渲染初始化；
+- 浏览器窗口尺寸改变，例如resize事件发生时等；
+
+## 28.border:none;与border:0;有什么区别？
+
+首先是性能差异：
+
+- {border：0;}: 把border设置为0像素，虽然在页面上看不到，但是按border默认值理解，浏览器依然对border-width/border-color进行了渲染，即已经占用内存值；
+- {border：none；}被理解为border-style:none。boder:0;比border:none多渲染了一个border-width:0,也就是为什么border:none的性能要比border:0高；
+
+兼容性差异：
+
+- {border:none;}当border为“none”时似乎对IE6/7无效边框依然存在当border为“0”时，感觉比“none”更有效，所有浏览器都一致把边框隐藏。
