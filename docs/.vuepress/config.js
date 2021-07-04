@@ -1,7 +1,6 @@
 module.exports = {
   title: 'Bob首页', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
   description: 'Bob的前端记录', // meta 中的描述文字，用于SEO
-  // 注入到当前页面的 HTML <head> 中的标签
   base: '/blog/',
   head: [
     ['link',
@@ -14,10 +13,7 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: 'auto',
-    //顶部导航栏
-    nav: [
-      //格式一：直接跳转，'/'为不添加路由，跳转至首页
-      {
+    nav: [{
         text: '首页',
         link: '/'
       },
@@ -33,15 +29,13 @@ module.exports = {
         text: '每日·一题',
         link: '/pages/question/'
       },
-      //格式二：添加下拉菜单，link指向的文件路径
       {
-        text: '分类', //默认显示        
-        ariaLabel: '分类', //用于识别的label
+        text: '分类',
+        ariaLabel: '分类',
         items: [{
             text: '文章',
             link: '/pages/knowledgeBase/test1.md'
           },
-          //点击标签会跳转至link的markdown文件生成的页面
           {
             text: '琐碎',
             link: '/pages/knowledgeBase/test4.md'
@@ -52,32 +46,139 @@ module.exports = {
         text: '功能演示',
         link: '/pages/knowledgeBase/test3.md'
       },
-      //格式三：跳转至外部网页，需http/https前缀
       {
         text: 'Github',
         link: 'https://github.com/Bob-huang-gdut'
       },
     ],
-    //侧边导航栏：会根据当前的文件路径是否匹配侧边栏数据，自动显示/隐藏
     sidebar: {
       '/pages/question/': [{
-        title: '壹题汇总', // 一级菜单名称
+        title: '壹题汇总',
         path: '/pages/question/',
       }, {
-        title: 'css世界', // 一级菜单名称
-        collapsable: true, // false为默认展开菜单, 默认值true是折叠,
-        sidebarDepth: 2, //  设置侧边导航自动提取markdown文件标题的层级，默认1为h2层级
+        title: 'css世界',
+        collapsable: true,
+        sidebarDepth: 2,
         children: [
-          ['css/1.md', 'css1'], //菜单名称为'子菜单1'，跳转至/pages/folder1/test1.md
+          ['css/1.md', 'css1'],
           ['css/2.md', 'css2']
         ]
       }, {
-        title: 'js世界', // 一级菜单名称
-        collapsable: true, // false为默认展开菜单, 默认值true是折叠,
-        sidebarDepth: 2, //  设置侧边导航自动提取markdown文件标题的层级，默认1为h2层级
+        title: 'js世界',
+        collapsable: true,
+        sidebarDepth: 2,
         children: [
-          ['js/1.md', 'js1'], //菜单名称为'子菜单1'，跳转至/pages/folder1/test1.md
+          ['js/1.md', 'js1'],
           ['js/2.md', 'js2']
+        ]
+      }],
+      '/pages/knowledgeBase/': [{
+        title: '知识库',
+        path: '/pages/knowledgeBase/',
+      }, {
+        title: 'css',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['css/1.md', 'css1']
+        ]
+      }, {
+        title: '设计模式',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['designMode/1.md', 'js1'],
+        ]
+      }, {
+        title: 'es6',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['es6/1.md', 'es61'],
+        ]
+      }, {
+        title: 'html',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['html/1.md', 'html1'],
+        ]
+      }, {
+        title: '小程序',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['miniProgram/1.md', '小程序1'],
+        ]
+      }, {
+        title: '性能优化',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['optimization/1.md', '性能优化1'],
+        ]
+      }, {
+        title: 'qiankun',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['qiankun/1.md', 'qiankun1'],
+        ]
+      }, {
+        title: 'react',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['react/1.md', 'react1'],
+        ]
+      }, {
+        title: 'ts',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['ts/1.md', 'ts'],
+        ]
+      }, {
+        title: 'vue',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['vue/1.md', 'vue'],
+        ]
+      }, {
+        title: '浏览器',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['browser/1.md', '浏览器'],
+        ]
+      }, {
+        title: '计算机网络',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['network/1.md', '计算机网络'],
+        ]
+      }, {
+        title: '数据结构',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['dataStructure/1.md', '数据结构'],
+        ]
+      }, {
+        title: '手写代码',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['code/1.md', '手写代码'],
+        ]
+      }, {
+        title: '前端安全',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['security/1.md', '前端安全'],
         ]
       }],
     },
