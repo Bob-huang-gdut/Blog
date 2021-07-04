@@ -88,106 +88,131 @@ module.exports = {
         ]
       }],
       '/pages/knowledgeBase/': [{
-        title: '知识库',
-        path: '/pages/knowledgeBase/',
-      }, {
-        title: 'html',
-        path: '/pages/knowledgeBase/html/',
-      }, {
-        title: 'css',
-        path: '/pages/knowledgeBase/css/',
-      }, {
-        title: '设计模式',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['designMode/1.md', 'js1'],
-        ]
-      }, {
-        title: 'es6',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['es6/1.md', 'es61'],
-        ]
-      }, {
-        title: '小程序',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['miniProgram/1.md', '小程序1'],
-        ]
-      }, {
-        title: '性能优化',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['optimization/1.md', '性能优化1'],
-        ]
-      }, {
-        title: 'qiankun',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['qiankun/1.md', 'qiankun1'],
-        ]
-      }, {
-        title: 'react',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['react/1.md', 'react1'],
-        ]
-      }, {
-        title: 'ts',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['ts/1.md', 'ts'],
-        ]
-      }, {
-        title: 'vue',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['vue/1.md', 'vue'],
-        ]
-      }, {
-        title: '浏览器',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['browser/1.md', '浏览器'],
-        ]
-      }, {
-        title: '计算机网络',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['network/1.md', '计算机网络'],
-        ]
-      }, {
-        title: '数据结构',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['dataStructure/1.md', '数据结构'],
-        ]
-      }, {
-        title: '手写代码',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['code/1.md', '手写代码'],
-        ]
-      }, {
-        title: '前端安全',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['security/1.md', '前端安全'],
-        ]
-      }],
+          title: '知识库',
+          path: '/pages/knowledgeBase/',
+        }, {
+          title: 'html',
+          path: '/pages/knowledgeBase/html/',
+        }, {
+          title: 'css',
+          path: '/pages/knowledgeBase/css/',
+        }, {
+          title: 'js',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['js/1.md', 'javascript篇--1.6万字带你回忆那些遗忘的JS知识点'],
+            ['js/2.md', '「2021」高频前端面试题汇总之JavaScript篇（上）'],
+            ['js/3.md', '「2021」高频前端面试题汇总之JavaScript篇（下）'],
+            ['js/4.md', 'javascript篇--1.6万字带你回忆那些遗忘的JS知识点'],
+            ['js/5.md', 'javascript篇--1.6万字带你回忆那些遗忘的JS知识点'],
+          ]
+        },
+        {
+          title: '设计模式',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['designMode/1.md', '设计模式'],
+          ]
+        },
+        {
+          title: 'es6',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['es6/1.md', 'es6'],
+          ]
+        },
+        {
+          title: '小程序',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['miniProgram/1.md', '小程序1'],
+          ]
+        },
+        {
+          title: '性能优化',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['optimization/1.md', '性能优化1'],
+          ]
+        },
+        {
+          title: 'qiankun',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['qiankun/1.md', 'qiankun1'],
+          ]
+        },
+        {
+          title: 'react',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['react/1.md', 'react1'],
+          ]
+        },
+        {
+          title: 'ts',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['ts/1.md', 'ts'],
+          ]
+        },
+        {
+          title: 'vue',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['vue/1.md', 'vue'],
+          ]
+        },
+        {
+          title: '浏览器',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['browser/1.md', '浏览器'],
+          ]
+        },
+        {
+          title: '计算机网络',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['network/1.md', '计算机网络'],
+          ]
+        },
+        {
+          title: '数据结构',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['dataStructure/1.md', '数据结构'],
+          ]
+        },
+        {
+          title: '手写代码',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['code/1.md', '手写代码'],
+          ]
+        },
+        {
+          title: '前端安全',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['security/1.md', '前端安全'],
+          ]
+        }
+      ],
     },
   }
 }
