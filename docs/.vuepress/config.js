@@ -22,8 +22,12 @@ module.exports = {
         link: '/'
       },
       {
-        text: '进阶·博文',
+        text: '知识库',
         link: '/pages/knowledgeBase/'
+      },
+      {
+        text: '算法',
+        link: '/pages/algorithm/'
       },
       {
         text: '每日·一题',
