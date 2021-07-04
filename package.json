@@ -12,6 +12,8 @@
   },
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.3",
-    "vuepress": "^1.8.2"
-  }
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-demo-block": "^0.7.2"
+  },
+  "dependencies": {}
 }

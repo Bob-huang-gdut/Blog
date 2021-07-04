@@ -1215,17 +1215,10 @@
     markdown-it-table-of-contents "^0.4.0"
     prismjs "^1.13.0"
 
-"@vuepress/plugin-active-header-links@1.8.2", "@vuepress/plugin-active-header-links@^1.8.2":
+"@vuepress/plugin-active-header-links@1.8.2":
   version "1.8.2"
   resolved "https://registry.nlark.com/@vuepress/plugin-active-header-links/download/@vuepress/plugin-active-header-links-1.8.2.tgz?cache=0&sync_timestamp=1625334700912&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vuepress%2Fplugin-active-header-links%2Fdownload%2F%40vuepress%2Fplugin-active-header-links-1.8.2.tgz#0cb9b29c826dd97d35357a9b09c962ef782cb793"
   integrity sha1-DLmynIJt2X01NXqbCcli73gst5M=
-  dependencies:
-    lodash.debounce "^4.0.8"
-
-"@vuepress/plugin-back-to-top@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.nlark.com/@vuepress/plugin-back-to-top/download/@vuepress/plugin-back-to-top-1.8.2.tgz?cache=0&sync_timestamp=1625334691082&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vuepress%2Fplugin-back-to-top%2Fdownload%2F%40vuepress%2Fplugin-back-to-top-1.8.2.tgz#e9794409d1d589e4952b0700291270d2696e6d01"
-  integrity sha1-6XlECdHVieSVKwcAKRJw0mlubQE=
   dependencies:
     lodash.debounce "^4.0.8"
 
@@ -1242,11 +1235,6 @@
     vuepress-plugin-feed "^0.1.8"
     vuepress-plugin-mailchimp "^1.4.1"
     vuepress-plugin-sitemap "^2.3.1"
-
-"@vuepress/plugin-google-analytics@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.nlark.com/@vuepress/plugin-google-analytics/download/@vuepress/plugin-google-analytics-1.8.2.tgz?cache=0&sync_timestamp=1625336671027&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vuepress%2Fplugin-google-analytics%2Fdownload%2F%40vuepress%2Fplugin-google-analytics-1.8.2.tgz#96cf65f1f0ecbb3bcf6b0d10089dafe2aea875bc"
-  integrity sha1-ls9l8fDsuzvPaw0QCJ2v4q6odbw=
 
 "@vuepress/plugin-last-updated@1.8.2":
   version "1.8.2"
@@ -8067,6 +8055,11 @@ vuepress-plugin-container@^2.0.2:
   dependencies:
     "@vuepress/shared-utils" "^1.2.0"
     markdown-it-container "^2.0.0"
+
+vuepress-plugin-demo-block@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.npm.taobao.org/vuepress-plugin-demo-block/download/vuepress-plugin-demo-block-0.7.2.tgz#02fc4f0ef764052981accf41f1403fdb9f794c0d"
+  integrity sha1-AvxPDvdkBSmBrM9B8UA/2595TA0=
 
 vuepress-plugin-disqus@^0.2.0:
   version "0.2.0"

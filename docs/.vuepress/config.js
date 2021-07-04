@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Bob首页', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
-  description: 'Bob的前端记录', // meta 中的描述文字，用于SEO
+  title: 'Bob前端进阶', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
+  description: '前端工程师,前端自学,高级前端工程师,中高级前端工程师,前端进阶知识,前端职业发展', // meta 中的描述文字，用于SEO
   base: '/blog/',
   head: [
     ['link',
@@ -8,9 +8,24 @@ module.exports = {
         rel: 'icon',
         href: '/logo.png'
       }
-      //浏览器的标签栏的网页图标，第一个'/'会遍历public文件夹的文件
     ],
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js'
+    }],
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js'
+    }],
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js'
+    }],
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js'
+    }],
   ],
+  plugins: [
+    'demo-block'
+  ],
+  serviceWorker: true,
   themeConfig: {
     sidebar: 'auto',
     nav: [{
@@ -98,11 +113,7 @@ module.exports = {
         ]
       }, {
         title: 'html',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['html/1.md', 'html1'],
-        ]
+        path: '/pages/knowledgeBase/html/',
       }, {
         title: '小程序',
         collapsable: true,
