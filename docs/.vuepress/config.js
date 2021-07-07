@@ -67,26 +67,6 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/pages/question/': [{
-        title: '壹题汇总',
-        path: '/pages/question/',
-      }, {
-        title: 'css世界',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['css/1.md', 'css1'],
-          ['css/2.md', 'css2']
-        ]
-      }, {
-        title: 'js世界',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['js/1.md', 'js1'],
-          ['js/2.md', 'js2']
-        ]
-      }],
       '/pages/knowledgeBase/': [{
           title: '知识库',
           path: '/pages/knowledgeBase/',
@@ -198,11 +178,7 @@ module.exports = {
         },
         {
           title: '手写代码',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['code/1.md', '手写代码'],
-          ]
+          path: '/pages/knowledgeBase/code/',
         },
         {
           title: '前端安全',
@@ -213,6 +189,30 @@ module.exports = {
           ]
         }
       ],
+      '/pages/algorithm/': [{
+        title: '壹题汇总',
+        path: '/pages/algorithm/',
+      }],
+      '/pages/question/': [{
+        title: '壹题汇总',
+        path: '/pages/question/',
+      }, {
+        title: 'css世界',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['css/1.md', 'css1'],
+          ['css/2.md', 'css2']
+        ]
+      }, {
+        title: 'js世界',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['js/1.md', 'js1'],
+          ['js/2.md', 'js2']
+        ]
+      }],
     },
   }
 }
