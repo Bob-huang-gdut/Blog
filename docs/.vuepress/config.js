@@ -190,26 +190,18 @@ module.exports = {
         }
       ],
       '/pages/algorithm/': [{
-        title: '壹题汇总',
+        title: '算法',
         path: '/pages/algorithm/',
       }],
       '/pages/question/': [{
         title: '壹题汇总',
         path: '/pages/question/',
       }, {
-        title: 'css世界',
+        title: 'js',
         collapsable: true,
         sidebarDepth: 2,
         children: [
-          ['css/1.md', 'css1'],
-          ['css/2.md', 'css2']
-        ]
-      }, {
-        title: 'js世界',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['js/1.md', 'js1'],
+          ['js/1.md', '代码输出题'],
           ['js/2.md', 'js2']
         ]
       }],
