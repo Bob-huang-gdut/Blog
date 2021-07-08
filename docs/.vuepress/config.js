@@ -131,7 +131,7 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['react/1.md', 'react1'],
+            ['react/1.md', 'react'],
           ]
         },
         {
@@ -147,7 +147,7 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['vue/1.md', 'vue'],
+            ['vue/1.md', 'vue 基础'],
           ]
         },
         {
