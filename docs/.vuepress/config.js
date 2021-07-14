@@ -84,6 +84,7 @@ module.exports = {
             ['js/1.md', 'javascript篇--1.6万字带你回忆那些遗忘的JS知识点'],
             ['js/2.md', '「2021」高频前端面试题汇总之JavaScript篇（上）'],
             ['js/3.md', '「2021」高频前端面试题汇总之JavaScript篇（下）'],
+            ['js/4.md', 'JavaScript风格指南'],
           ]
         },
         {
