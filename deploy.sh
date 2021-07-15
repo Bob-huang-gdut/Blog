@@ -11,4 +11,4 @@ cp -r docs/.vuepress/dist/* ./
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:Bob-huang-gdut/blog.git master
+git push -f git@github.com:bob-huang-gdut/blog.git master
