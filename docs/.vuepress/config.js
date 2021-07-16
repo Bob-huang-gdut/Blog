@@ -153,11 +153,7 @@ module.exports = {
         },
         {
           title: '浏览器',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['browser/1.md', '浏览器'],
-          ]
+          path: '/pages/knowledgeBase/browser/',
         },
         {
           title: '计算机网络',
