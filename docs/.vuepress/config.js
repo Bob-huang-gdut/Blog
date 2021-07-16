@@ -157,11 +157,7 @@ module.exports = {
         },
         {
           title: '计算机网络',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['network/1.md', '计算机网络'],
-          ]
+          path: '/pages/knowledgeBase/network/',
         },
         {
           title: '数据结构',
