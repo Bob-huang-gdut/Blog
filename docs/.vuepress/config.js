@@ -22,44 +22,29 @@ module.exports = {
       src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js'
     }],
   ],
-  plugins: [
-    'demo-block'
-  ],
   serviceWorker: true,
   themeConfig: {
     sidebar: 'auto',
+    navbar: true,
+    search: true,
+    searchMaxSuggestions: 10,
+    smoothScroll: true,
+    lastUpdated: 'Last Updated',
     nav: [{
         text: '首页',
         link: '/'
       },
       {
         text: '知识库',
-        link: '/pages/knowledgeBase/'
+        link: '/knowledgeBase/'
       },
       {
         text: '算法',
-        link: '/pages/algorithm/'
+        link: '/algorithm/'
       },
       {
         text: '每日·一题',
-        link: '/pages/question/'
-      },
-      {
-        text: '分类',
-        ariaLabel: '分类',
-        items: [{
-            text: '文章',
-            link: '/pages/knowledgeBase/test1.md'
-          },
-          {
-            text: '琐碎',
-            link: '/pages/knowledgeBase/test4.md'
-          },
-        ]
-      },
-      {
-        text: '功能演示',
-        link: '/pages/knowledgeBase/test3.md'
+        link: '/question/'
       },
       {
         text: 'Github',
@@ -67,15 +52,16 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/pages/knowledgeBase/': [{
+      '/knowledgeBase/': [{
           title: '知识库',
-          path: '/pages/knowledgeBase/',
-        }, {
+          path: '/knowledgeBase/',
+        },
+        {
           title: 'html',
-          path: '/pages/knowledgeBase/html/',
+          path: '/knowledgeBase/html/',
         }, {
           title: 'css',
-          path: '/pages/knowledgeBase/css/',
+          path: '/knowledgeBase/css/',
         }, {
           title: 'js',
           collapsable: true,
@@ -159,11 +145,11 @@ module.exports = {
         },
         {
           title: '浏览器',
-          path: '/pages/knowledgeBase/browser/',
+          path: '/knowledgeBase/browser/',
         },
         {
           title: '计算机网络',
-          path: '/pages/knowledgeBase/network/',
+          path: '/knowledgeBase/network/',
         },
         {
           title: '数据结构',
@@ -175,7 +161,7 @@ module.exports = {
         },
         {
           title: '手写代码',
-          path: '/pages/knowledgeBase/code/',
+          path: '/knowledgeBase/code/',
         },
         {
           title: '前端安全',
@@ -186,22 +172,36 @@ module.exports = {
           ]
         }
       ],
-      '/pages/algorithm/': [{
+      '/algorithm/': [{
         title: '算法',
-        path: '/pages/algorithm/',
+        path: '/algorithm/',
       }],
-      '/pages/question/': [{
-        title: '壹题汇总',
-        path: '/pages/question/',
-      }, {
-        title: 'js',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['js/1.md', '代码输出题'],
-          ['js/2.md', 'js2']
-        ]
-      }],
+      '/question/': [{
+          title: '每天一题',
+          path: '/question/',
+        },
+        {
+          title: 'js',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['js/1.md', '代码输出题'],
+            ['js/2.md', 'js2']
+          ]
+        }
+      ],
     },
-  }
+  },
+  plugins: [
+    'demo-block',
+    '@vuepress/last-updated',
+    '@vuepress/back-to-top',
+    '@vuepress/active-header-links',
+    '@vuepress/google-analytics',
+    {
+      'ga': 'UA-00000000-0' // UA-00000000-0
+    },
+    '@vuepress/medium-zoom',
+    '@vuepress/nprogress'
+  ]
 }
