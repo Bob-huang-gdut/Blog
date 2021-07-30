@@ -6,7 +6,7 @@
   "author": "sibo_huang <18813295951@163.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "serve": "vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "bash deploy.sh"
   },

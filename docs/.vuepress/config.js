@@ -148,7 +148,13 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['vue/1.md', 'vue 基础'],
+            ['vue/1.md', '一、基础'],
+            ['vue/2.md', '二、生命周期'],
+            ['vue/3.md', '三、组件通信'],
+            ['vue/4.md', '四、路由'],
+            ['vue/5.md', '五、vuex'],
+            ['vue/6.md', '六、vue3.0'],
+            ['vue/7.md', '七、虚拟DOM'],
           ]
         },
         {
