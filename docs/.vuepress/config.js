@@ -85,14 +85,6 @@ module.exports = {
           ]
         },
         {
-          title: 'es6',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['es6/1.md', 'es6'],
-          ]
-        },
-        {
           title: '小程序',
           collapsable: true,
           sidebarDepth: 2,
@@ -105,7 +97,9 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['optimization/1.md', '性能优化1'],
+            ['optimization/1.md', '基础性能优化'],
+            ['optimization/2.md', 'vue优化'],
+            ['optimization/3.md', 'react优化'],
           ]
         },
         {
@@ -122,7 +116,11 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['react/1.md', 'react'],
+            ['react/1.md', '一、组件基础'],
+            ['react/2.md', '二、数据管理'],
+            ['react/3.md', '三、生命周期'],
+            ['react/4.md', '四、组件通信'],
+            ['react/5.md', '五、路由'],
           ]
         },
         {

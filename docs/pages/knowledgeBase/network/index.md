@@ -128,7 +128,7 @@ HTTP和HTTPS协议的主要区别如下：
 
 ```
 GET的长度值 = URL（2083）- （你的Domain+Path）-2（2是get请求中?=两个字符的长度）
-复制代码
+
 ```
 
 下面看一下主流浏览器对get方法中url的长度限制范围：
@@ -586,7 +586,7 @@ IIS 定义了许多不同的 403 错误，它们指明更为具体的错误原�
 
 ```
 Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
-复制代码
+
 ```
 
 ### 4. 5XX (Server Error 服务器错误状态码)
@@ -701,7 +701,7 @@ DNS 服务器中以资源记录的形式存储信息，每一个 DNS 响应报�
 
 ```
 （Name，Value，Type，TTL）
-复制代码
+
 ```
 
 其中 TTL 是资源记录的生存时间，它定义了资源记录能够被其他的 DNS 服务器缓存多长时间。
@@ -1072,7 +1072,7 @@ ws.onmessage = function(res) {
 ws.onclose = function(evt) {
   console.log("Connection closed.");
 }; 
-复制代码
+
 ```
 
 ### 2. 即时通讯的实现：短轮询、长轮询、SSE 和 WebSocket 间的区别？

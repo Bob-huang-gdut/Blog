@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. React-Router的实现原理是什么？ | 黄思博前端进阶</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/blog/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="前端工程师,前端自学,高级前端工程师,中高级前端工程师,前端进阶知识,前端职业发展">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.63322341.css" as="style"><link rel="preload" href="/blog/assets/js/app.b5e9e7e1.js" as="script"><link rel="preload" href="/blog/assets/js/2.132bf881.js" as="script"><link rel="preload" href="/blog/assets/js/37.f225c0d5.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.1b723963.js"><link rel="prefetch" href="/blog/assets/js/11.6b16bee5.js"><link rel="prefetch" href="/blog/assets/js/12.eba0ba0d.js"><link rel="prefetch" href="/blog/assets/js/13.4c73ad0b.js"><link rel="prefetch" href="/blog/assets/js/14.f290a01d.js"><link rel="prefetch" href="/blog/assets/js/15.7ddabf64.js"><link rel="prefetch" href="/blog/assets/js/16.f9960c53.js"><link rel="prefetch" href="/blog/assets/js/17.8ac2c17c.js"><link rel="prefetch" href="/blog/assets/js/18.fd528331.js"><link rel="prefetch" href="/blog/assets/js/19.f6968a8a.js"><link rel="prefetch" href="/blog/assets/js/20.393e1a24.js"><link rel="prefetch" href="/blog/assets/js/21.b54cfac0.js"><link rel="prefetch" href="/blog/assets/js/22.a3985ffe.js"><link rel="prefetch" href="/blog/assets/js/23.867cd02c.js"><link rel="prefetch" href="/blog/assets/js/24.c207e325.js"><link rel="prefetch" href="/blog/assets/js/25.d0ac9974.js"><link rel="prefetch" href="/blog/assets/js/26.e1b7837b.js"><link rel="prefetch" href="/blog/assets/js/27.def6951c.js"><link rel="prefetch" href="/blog/assets/js/28.613509fc.js"><link rel="prefetch" href="/blog/assets/js/29.06457991.js"><link rel="prefetch" href="/blog/assets/js/3.5ad1f732.js"><link rel="prefetch" href="/blog/assets/js/30.42a35757.js"><link rel="prefetch" href="/blog/assets/js/31.3b0ff6a3.js"><link rel="prefetch" href="/blog/assets/js/32.15260570.js"><link rel="prefetch" href="/blog/assets/js/33.5f536f15.js"><link rel="prefetch" href="/blog/assets/js/34.beffd4e6.js"><link rel="prefetch" href="/blog/assets/js/35.325f85c1.js"><link rel="prefetch" href="/blog/assets/js/36.537d5b68.js"><link rel="prefetch" href="/blog/assets/js/38.448d5130.js"><link rel="prefetch" href="/blog/assets/js/39.39d1eb6c.js"><link rel="prefetch" href="/blog/assets/js/4.985a7118.js"><link rel="prefetch" href="/blog/assets/js/40.644ac8ad.js"><link rel="prefetch" href="/blog/assets/js/41.2d501bd2.js"><link rel="prefetch" href="/blog/assets/js/42.e7cf4941.js"><link rel="prefetch" href="/blog/assets/js/43.0ecde357.js"><link rel="prefetch" href="/blog/assets/js/44.8b34627b.js"><link rel="prefetch" href="/blog/assets/js/45.8b9ffc51.js"><link rel="prefetch" href="/blog/assets/js/46.970cd652.js"><link rel="prefetch" href="/blog/assets/js/47.0eccc6b9.js"><link rel="prefetch" href="/blog/assets/js/48.39499be5.js"><link rel="prefetch" href="/blog/assets/js/49.b2aff4cb.js"><link rel="prefetch" href="/blog/assets/js/5.49a2ce40.js"><link rel="prefetch" href="/blog/assets/js/50.00642b29.js"><link rel="prefetch" href="/blog/assets/js/51.3acbf100.js"><link rel="prefetch" href="/blog/assets/js/52.e54a1dd7.js"><link rel="prefetch" href="/blog/assets/js/53.327472d5.js"><link rel="prefetch" href="/blog/assets/js/54.e3872db0.js"><link rel="prefetch" href="/blog/assets/js/55.0cfa0e23.js"><link rel="prefetch" href="/blog/assets/js/56.a4b02309.js"><link rel="prefetch" href="/blog/assets/js/57.6af97e9b.js"><link rel="prefetch" href="/blog/assets/js/58.b427f305.js"><link rel="prefetch" href="/blog/assets/js/59.4ceab454.js"><link rel="prefetch" href="/blog/assets/js/6.67fb8021.js"><link rel="prefetch" href="/blog/assets/js/60.ee408b9f.js"><link rel="prefetch" href="/blog/assets/js/7.cd8d8194.js"><link rel="prefetch" href="/blog/assets/js/8.c559eeab.js"><link rel="prefetch" href="/blog/assets/js/9.cb85a0b7.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.63322341.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">黄思博前端进阶</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/pages/knowledgeBase/" class="nav-link router-link-active">
+  知识库
+</a></div><div class="nav-item"><a href="/blog/pages/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/pages/question/" class="nav-link">
+  每日·一题
+</a></div><div class="nav-item"><a href="/blog/pages/summary/" class="nav-link">
+  个人总结
+</a></div><div class="nav-item"><a href="https://github.com/Bob-huang-gdut" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/pages/knowledgeBase/" class="nav-link router-link-active">
+  知识库
+</a></div><div class="nav-item"><a href="/blog/pages/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/pages/question/" class="nav-link">
+  每日·一题
+</a></div><div class="nav-item"><a href="/blog/pages/summary/" class="nav-link">
+  个人总结
+</a></div><div class="nav-item"><a href="https://github.com/Bob-huang-gdut" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/knowledgeBase/" aria-current="page" class="sidebar-link">知识库</a></li><li><a href="/blog/pages/knowledgeBase/html/" class="sidebar-link">html</a></li><li><a href="/blog/pages/knowledgeBase/css/" class="sidebar-link">css</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小程序</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>qiankun</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>react</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/knowledgeBase/react/1.html" class="sidebar-link">一、组件基础</a></li><li><a href="/blog/pages/knowledgeBase/react/2.html" class="sidebar-link">二、数据管理</a></li><li><a href="/blog/pages/knowledgeBase/react/3.html" class="sidebar-link">三、生命周期</a></li><li><a href="/blog/pages/knowledgeBase/react/4.html" class="sidebar-link">四、组件通信</a></li><li><a href="/blog/pages/knowledgeBase/react/5.html" aria-current="page" class="active sidebar-link">五、路由</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ts</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/blog/pages/knowledgeBase/browser/" class="sidebar-link">浏览器</a></li><li><a href="/blog/pages/knowledgeBase/network/" class="sidebar-link">计算机网络</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/blog/pages/knowledgeBase/code/" class="sidebar-link">手写代码</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端安全</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="_1-react-router的实现原理是什么"><a href="#_1-react-router的实现原理是什么" class="header-anchor">#</a> 1. React-Router的实现原理是什么？</h3> <p>客户端路由实现的思想：</p> <ul><li><p>基于 hash 的路由：通过监听<code>hashchange</code>事件，感知 hash 的变化</p> <ul><li>改变 hash 可以直接通过 location.hash=xxx</li></ul></li> <li><p>基于 H5 history 路由：</p> <ul><li>改变 url 可以通过 history.pushState 和 resplaceState 等，会将URL压入堆栈，同时能够应用 <code>history.go()</code> 等 API</li> <li>监听 url 的变化可以通过自定义事件触发实现</li></ul></li></ul> <p><strong>react-router 实现的思想：</strong></p> <ul><li>基于 <code>history</code> 库来实现上述不同的客户端路由实现思想，并且能够保存历史记录等，磨平浏览器差异，上层无感知</li> <li>通过维护的列表，在每次 URL 发生变化的回收，通过配置的 路由路径，匹配到对应的 Component，并且 render</li></ul> <h3 id="_2-如何配置-react-router-实现路由切换"><a href="#_2-如何配置-react-router-实现路由切换" class="header-anchor">#</a> 2. 如何配置 React-Router 实现路由切换</h3> <p><strong>（1）使用<code>&lt;Route&gt;</code> 组件</strong></p> <p>路由匹配是通过比较 <code>&lt;Route&gt;</code> 的 path 属性和当前地址的 pathname 来实现的。当一个 <code>&lt;Route&gt;</code> 匹配成功时，它将渲染其内容，当它不匹配时就会渲染 null。没有路径的 <code>&lt;Route&gt;</code> 将始终被匹配。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// when location = { pathname: '/about' }
+&lt;Route path='/about' component={About}/&gt; // renders &lt;About/&gt;
+&lt;Route path='/contact' component={Contact}/&gt; // renders null
+&lt;Route component={Always}/&gt; // renders &lt;Always/&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>（2）结合使用 <code>&lt;Switch&gt;</code> 组件和 <code>&lt;Route&gt;</code> 组件</strong></p> <p><code>&lt;Switch&gt;</code> 用于将 <code>&lt;Route&gt;</code> 分组。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;Switch&gt;
+    &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+    &lt;Route path=&quot;/about&quot; component={About} /&gt;
+    &lt;Route path=&quot;/contact&quot; component={Contact} /&gt;
+&lt;/Switch&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><code>&lt;Switch&gt;</code> 不是分组 <code>&lt;Route&gt;</code> 所必须的，但他通常很有用。 一个 <code>&lt;Switch&gt;</code> 会遍历其所有的子 <code>&lt;Route&gt;</code>元素，并仅渲染与当前地址匹配的第一个元素。</p> <p><strong>（3）使用 <code>&lt;Link&gt;、 &lt;NavLink&gt;、&lt;Redirect&gt;</code> 组件</strong></p> <p><code>&lt;Link&gt;</code> 组件来在你的应用程序中创建链接。无论你在何处渲染一个<code>&lt;Link&gt;</code> ，都会在应用程序的 HTML 中渲染锚（<code>&lt;a&gt;</code>）。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;   
+// &lt;a href='/'&gt;Home&lt;/a&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>是一种特殊类型的 当它的 to属性与当前地址匹配时，可以将其定义为&quot;活跃的&quot;。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// location = { pathname: '/react' }
+&lt;NavLink to=&quot;/react&quot; activeClassName=&quot;hurray&quot;&gt;
+    React
+&lt;/NavLink&gt;
+// &lt;a href='/react' className='hurray'&gt;React&lt;/a&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>当我们想强制导航时，可以渲染一个<code>&lt;Redirect&gt;</code>，当一个<code>&lt;Redirect&gt;</code>渲染时，它将使用它的to属性进行定向。</p> <h3 id="_3-react-router怎么设置重定向"><a href="#_3-react-router怎么设置重定向" class="header-anchor">#</a> 3. React-Router怎么设置重定向？</h3> <p>使用<code>&lt;Redirect&gt;</code>组件实现路由的重定向：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;Switch&gt;
+  &lt;Redirect from='/users/:id' to='/users/profile/:id'/&gt;
+  &lt;Route path='/users/profile/:id' component={Profile}/&gt;
+&lt;/Switch&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>当请求 <code>/users/:id</code> 被重定向去 <code>'/users/profile/:id'</code>：</p> <ul><li>属性 <code>from: string</code>：需要匹配的将要被重定向路径。</li> <li>属性 <code>to: string</code>：重定向的 URL 字符串</li> <li>属性 <code>to: object</code>：重定向的 location 对象</li> <li>属性 <code>push: bool</code>：若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。</li></ul> <h3 id="_4-react-router-里的-link-标签和-a-标签的区别"><a href="#_4-react-router-里的-link-标签和-a-标签的区别" class="header-anchor">#</a> 4. react-router 里的 Link 标签和 a 标签的区别</h3> <p>从最终渲染的 DOM 来看，这两者都是链接，都是 标签，区别是∶ <code>&lt;Link&gt;</code>是react-router 里实现路由跳转的链接，一般配合<code>&lt;Route&gt;</code> 使用，react-router接管了其默认的链接跳转行为，区别于传统的页面跳转，<code>&lt;Link&gt;</code> 的“跳转”行为只会触发相匹配的<code>&lt;Route&gt;</code>对应的页面内容更新，而不会刷新整个页面。</p> <p><code>&lt;Link&gt;</code>做了3件事情:</p> <ul><li>有onclick那就执行onclick</li> <li>click的时候阻止a标签默认事件</li> <li>根据跳转href(即是to)，用history (web前端路由两种方式之一，history &amp; hash)跳转，此时只是链接变了，并没有刷新页面而<code>&lt;a&gt;</code>标签就是普通的超链接了，用于从当前页面跳转到href指向的另一 个页面(非锚点情况)。</li></ul> <p>a标签默认事件禁掉之后做了什么才实现了跳转?</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let domArr = document.getElementsByTagName('a')
+[...domArr].forEach(item=&gt;{
+    item.addEventListener('click',function () {
+        location.href = this.href
+    })
+})
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_5-react-router如何获取url的参数和历史对象"><a href="#_5-react-router如何获取url的参数和历史对象" class="header-anchor">#</a> 5. React-Router如何获取URL的参数和历史对象？</h3> <p><strong>（1）获取URL的参数</strong></p> <ul><li><strong>get传值</strong></li></ul> <p>路由配置还是普通的配置，如：<code>'admin'</code>，传参方式如：<code>'admin?id='1111''</code>。通过<code>this.props.location.search</code>获取url获取到一个字符串<code>'?id='1111'</code> 可以用url，qs，querystring，浏览器提供的api URLSearchParams对象或者自己封装的方法去解析出id的值。</p> <ul><li><strong>动态路由传值</strong></li></ul> <p>路由需要配置成动态路由：如<code>path='/admin/:id'</code>，传参方式，如<code>'admin/111'</code>。通过<code>this.props.match.params.id</code> 取得url中的动态路由id部分的值，除此之外还可以通过<code>useParams（Hooks）</code>来获取</p> <ul><li><strong>通过query或state传值</strong></li></ul> <p>传参方式如：在Link组件的to属性中可以传递对象<code>{pathname:'/admin',query:'111',state:'111'};</code>。通过<code>this.props.location.state</code>或<code>this.props.location.query</code>来获取即可，传递的参数可以是对象、数组等，但是存在缺点就是只要刷新页面，参数就会丢失。</p> <p><strong>（2）获取历史对象</strong></p> <ul><li>如果React &gt;= 16.8 时可以使用 React Router中提供的Hooks</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { useHistory } from &quot;react-router-dom&quot;;
+let history = useHistory();
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>2.使用this.props.history获取历史对象</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let history = this.props.history;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="_6-react-router-4怎样在路由变化时重新渲染同一个组件"><a href="#_6-react-router-4怎样在路由变化时重新渲染同一个组件" class="header-anchor">#</a> 6. React-Router 4怎样在路由变化时重新渲染同一个组件？</h3> <p>当路由变化时，即组件的props发生了变化，会调用componentWillReceiveProps等生命周期钩子。那需要做的只是： 当路由改变时，根据路由，也去请求数据：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class NewsList extends Component {
+  componentDidMount () {
+     this.fetchData(this.props.location);
+  }
+  
+  fetchData(location) {
+    const type = location.pathname.replace('/', '') || 'top'
+    this.props.dispatch(fetchListData(type))
+  }
+  componentWillReceiveProps(nextProps) {
+     if (nextProps.location.pathname != this.props.location.pathname) {
+         this.fetchData(nextProps.location);
+     } 
+  }
+  render () {
+    ...
+  }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>利用生命周期componentWillReceiveProps，进行重新render的预处理操作。</p> <h3 id="_7-react-router的路由有几种模式"><a href="#_7-react-router的路由有几种模式" class="header-anchor">#</a> 7. React-Router的路由有几种模式？</h3> <p>React-Router 支持使用 hash（对应 HashRouter）和 browser（对应 BrowserRouter） 两种路由规则， react-router-dom 提供了 BrowserRouter 和 HashRouter 两个组件来实现应用的 UI 和 URL 同步：</p> <ul><li>BrowserRouter 创建的 URL 格式：<a href="https://link.juejin.cn?target=http%3A%2F%2Fxxx.com%2Fpath" title="http://xxx.com/path" target="_blank" rel="noopener noreferrer">xxx.com/path<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>HashRouter 创建的 URL 格式：<a href="https://link.juejin.cn?target=http%3A%2F%2Fxxx.com%2F%23%2Fpath" title="http://xxx.com/#/path" target="_blank" rel="noopener noreferrer">xxx.com/#/path<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <p><strong>（1）BrowserRouter</strong></p> <p>它使用 HTML5 提供的 history API（pushState、replaceState 和 popstate 事件）来保持 UI 和 URL 的同步。由此可以看出，<strong>BrowserRouter 是使用 HTML 5 的 history API 来控制路由跳转的：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;BrowserRouter
+    basename={string}
+    forceRefresh={bool}
+    getUserConfirmation={func}
+    keyLength={number}
+/&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>其中的属性如下：</strong></p> <ul><li>basename 所有路由的基准 URL。basename 的正确格式是前面有一个前导斜杠，但不能有尾部斜杠；</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;BrowserRouter basename=&quot;/calendar&quot;&gt;
+    &lt;Link to=&quot;/today&quot; /&gt;
+&lt;/BrowserRouter&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>等同于</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;a href=&quot;/calendar/today&quot; /&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ul><li>forceRefresh 如果为 true，在导航的过程中整个页面将会刷新。一般情况下，只有在不支持 HTML5 history API 的浏览器中使用此功能；</li> <li>getUserConfirmation 用于确认导航的函数，默认使用 window.confirm。例如，当从 /a 导航至 /b 时，会使用默认的 confirm 函数弹出一个提示，用户点击确定后才进行导航，否则不做任何处理；</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 这是默认的确认函数
+const getConfirmation = (message, callback) =&gt; {
+  const allowTransition = window.confirm(message);
+  callback(allowTransition);
+}
+&lt;BrowserRouter getUserConfirmation={getConfirmation} /&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><blockquote><p>需要配合<code>&lt;Prompt&gt;</code> 一起使用。</p></blockquote> <ul><li>KeyLength 用来设置 Location.Key 的长度。</li></ul> <p><strong>（2）HashRouter</strong></p> <p>使用 URL 的 hash 部分（即 window.location.hash）来保持 UI 和 URL 的同步。由此可以看出，<strong>HashRouter 是通过 URL 的 hash 属性来控制路由跳转的：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;HashRouter
+    basename={string}
+    getUserConfirmation={func}
+    hashType={string}  
+/&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><strong>其参数如下</strong>：</p> <ul><li><p>basename, getUserConfirmation 和 <code>BrowserRouter</code> 功能一样；</p></li> <li><p>hashType window.location.hash 使用的 hash 类型，有如下几种：</p> <ul><li>slash - 后面跟一个斜杠，例如 #/ 和 #/sunshine/lollipops；</li> <li>noslash - 后面没有斜杠，例如 # 和 #sunshine/lollipops；</li> <li>hashbang - Google 风格的 ajax crawlable，例如 #!/ 和 #!/sunshine/lollipops。</li></ul></li></ul> <h3 id="_8-react-router-4的switch有什么用"><a href="#_8-react-router-4的switch有什么用" class="header-anchor">#</a> 8. React-Router 4的Switch有什么用？</h3> <p>Switch 通常被用来包裹 Route，用于渲染与路径匹配的第一个子 <code>&lt;Route&gt;</code> 或 <code>&lt;Redirect&gt;</code>，它里面不能放其他元素。</p> <p>假如不加 <code>&lt;Switch&gt;</code> ：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { Route } from 'react-router-dom'
+
+&lt;Route path=&quot;/&quot; component={Home}&gt;&lt;/Route&gt;
+&lt;Route path=&quot;/login&quot; component={Login}&gt;&lt;/Route&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Route 组件的 path 属性用于匹配路径，因为需要匹配 <code>/</code> 到 <code>Home</code>，匹配 <code>/login</code> 到 <code>Login</code>，所以需要两个 Route，但是不能这么写。这样写的话，当 URL 的 path 为 “/login” 时，<code>&lt;Route path=&quot;/&quot; /&gt;</code>和<code>&lt;Route path=&quot;/login&quot; /&gt;</code> 都会被匹配，因此页面会展示 Home 和 Login 两个组件。这时就需要借助 <code>&lt;Switch&gt;</code> 来做到只显示一个匹配组件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { Switch, Route} from 'react-router-dom'
+    
+&lt;Switch&gt;
+    &lt;Route path=&quot;/&quot; component={Home}&gt;&lt;/Route&gt;
+    &lt;Route path=&quot;/login&quot; component={Login}&gt;&lt;/Route&gt;
+&lt;/Switch&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>此时，再访问 “/login” 路径时，却只显示了 Home 组件。这是就用到了exact属性，它的作用就是精确匹配路径，经常与<code>&lt;Switch&gt;</code> 联合使用。只有当 URL 和该 <code>&lt;Route&gt;</code> 的 path 属性完全一致的情况下才能匹配上：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { Switch, Route} from 'react-router-dom'
+   
+&lt;Switch&gt;
+   &lt;Route exact path=&quot;/&quot; component={Home}&gt;&lt;/Route&gt;
+   &lt;Route exact path=&quot;/login&quot; component={Login}&gt;&lt;/Route&gt;
+&lt;/Switch&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/pages/knowledgeBase/react/4.html" class="prev">
+        四、组件通信
+      </a></span> <span class="next"><a href="/blog/pages/knowledgeBase/ts/1.html">
+        ts
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.b5e9e7e1.js" defer></script><script src="/blog/assets/js/2.132bf881.js" defer></script><script src="/blog/assets/js/37.f225c0d5.js" defer></script>
+  </body>
+</html>
