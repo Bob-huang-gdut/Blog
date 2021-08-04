@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Bob前端进阶', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
+  title: '黄思博前端进阶', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
   description: '前端工程师,前端自学,高级前端工程师,中高级前端工程师,前端进阶知识,前端职业发展', // meta 中的描述文字，用于SEO
   base: '/blog/',
   head: [
@@ -16,9 +16,6 @@ module.exports = {
       src: 'https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js'
     }],
     ['script', {
-      src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js'
-    }],
-    ['script', {
       src: 'https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js'
     }],
   ],
@@ -29,7 +26,6 @@ module.exports = {
     search: true,
     searchMaxSuggestions: 10,
     smoothScroll: true,
-    lastUpdated: 'Last Updated',
     nav: [{
         text: '首页',
         link: '/'

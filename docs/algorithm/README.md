@@ -169,3 +169,12 @@ https://www.geekxh.com/0.01.%E6%8C%87%E5%AF%BC%E5%AD%A6%E4%B9%A0/022.html#_03%E3
 忘就对了。如果你在刷题的时候发现怎么也写不出来，别担心，这是正常的。如果你还发现，之前明明刷过的题，过段时间再做的时候，自己还是不会。别担心，这特么还是正常的。
 
 所以如果有些题你刷了好多遍都还是不会，那就需要进行总结。思考到底是哪一环节卡住了你，反复进行练习。当然，这里有人建议是每道题都刷个3遍，其实我觉得倒是没有这个必要。我建议是找个小本本，记一下每一道的核心要素与考察要点。在刷题的这段时间里，没啥事就瞅瞅翻翻。
+
+###
+举例A 6在下4在上就等于6的全排列等于6减4的全排列，最后计算出结果等于360。
+
+![](https://exp-picture.cdn.bcebos.com/9881b1fce186242f12cbe6ab35e434daf15ee80d.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fformat%2Cf_jpg%2Fquality%2Cq_80)
+
+C（n,m）,n在下m在上，是代表从n个元素里面任选m个元素进行组合。
+
+![](https://exp-picture.cdn.bcebos.com/ff5c88d81819612062747eda70f202b374d7df0d.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fformat%2Cf_jpg%2Fquality%2Cq_80)
