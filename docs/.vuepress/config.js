@@ -32,15 +32,19 @@ module.exports = {
       },
       {
         text: '知识库',
-        link: '/knowledgeBase/'
+        link: '/pages/knowledgeBase/'
       },
       {
         text: '算法',
-        link: '/algorithm/'
+        link: '/pages/algorithm/'
       },
       {
         text: '每日·一题',
-        link: '/question/'
+        link: '/pages/question/'
+      },
+      {
+        text: '个人总结',
+        link: '/pages/summary/'
       },
       {
         text: 'Github',
@@ -48,16 +52,16 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/knowledgeBase/': [{
+      '/pages/knowledgeBase/': [{
           title: '知识库',
-          path: '/knowledgeBase/',
+          path: '/pages/knowledgeBase/',
         },
         {
           title: 'html',
-          path: '/knowledgeBase/html/',
+          path: '/pages/knowledgeBase/html/',
         }, {
           title: 'css',
-          path: '/knowledgeBase/css/',
+          path: '/pages/knowledgeBase/css/',
         }, {
           title: 'js',
           collapsable: true,
@@ -141,11 +145,11 @@ module.exports = {
         },
         {
           title: '浏览器',
-          path: '/knowledgeBase/browser/',
+          path: '/pages/knowledgeBase/browser/',
         },
         {
           title: '计算机网络',
-          path: '/knowledgeBase/network/',
+          path: '/pages/knowledgeBase/network/',
         },
         {
           title: '数据结构',
@@ -157,7 +161,7 @@ module.exports = {
         },
         {
           title: '手写代码',
-          path: '/knowledgeBase/code/',
+          path: '/pages/knowledgeBase/code/',
         },
         {
           title: '前端安全',
@@ -168,13 +172,13 @@ module.exports = {
           ]
         }
       ],
-      '/algorithm/': [{
+      '/pages/algorithm/': [{
         title: '算法',
-        path: '/algorithm/',
+        path: '/pages/algorithm/',
       }],
-      '/question/': [{
+      '/pages/question/': [{
           title: '每天一题',
-          path: '/question/',
+          path: '/pages/question/',
         },
         {
           title: 'js',
@@ -186,6 +190,25 @@ module.exports = {
           ]
         }
       ],
+      '/pages/summary/': [{
+        title: '个人总结',
+        path: '/pages/summary/',
+      }, {
+        title: 'js',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['folder1/1.md', '1.md'],
+          ['folder1/2.md', '2.md']
+        ]
+      }, {
+        title: 'ts',
+        collapsable: true,
+        sidebarDepth: 2,
+        children: [
+          ['folder2/3.md', '3.md'],
+        ]
+      }],
     },
   },
   plugins: [

@@ -4,7 +4,7 @@ heroImage: /logo.png
 heroText: 黄思博前端进阶之路
 tagline: 高级前端进阶之路
 actionText: 马上进入 →
-actionLink: /knowledgeBase/
+actionLink: /pages/knowledgeBase/
 features:
 - title: 知识库
   details: 知识库是知识内容的载体，就好比一本书一样，你可以在知识库里对知识内容进行重新组织和分类。
