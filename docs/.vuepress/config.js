@@ -2,6 +2,9 @@ module.exports = {
   title: '黄思博前端进阶', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
   description: '前端工程师,前端自学,高级前端工程师,中高级前端工程师,前端进阶知识,前端职业发展', // meta 中的描述文字，用于SEO
   base: '/blog/',
+  markdown: {
+    lineNumbers: true // 代码块显示行号
+  },
   head: [
     ['link',
       {
@@ -111,6 +114,7 @@ module.exports = {
           sidebarDepth: 2,
           children: [
             ['qiankun/1.md', 'qiankun1'],
+            ['qiankun/2.md', '模块联邦'],
           ]
         },
         {
@@ -216,11 +220,17 @@ module.exports = {
     '@vuepress/last-updated',
     '@vuepress/back-to-top',
     '@vuepress/active-header-links',
-    '@vuepress/google-analytics',
-    {
+    '@vuepress/google-analytics', {
       'ga': 'UA-00000000-0' // UA-00000000-0
     },
     '@vuepress/medium-zoom',
-    '@vuepress/nprogress'
+    '@vuepress/nprogress',
+    '@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: {
+        message: "新的风暴已经出现",
+        buttonText: "盘他"
+      }
+    }
   ]
 }
