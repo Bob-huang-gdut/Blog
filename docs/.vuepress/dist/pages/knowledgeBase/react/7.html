@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. 对 React Hook 的理解，它的实现原理是什么 | 黄思博前端进阶</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/blog/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <meta name="description" content="前端工程师,前端自学,高级前端工程师,中高级前端工程师,前端进阶知识,前端职业发展">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.e60b25d8.css" as="style"><link rel="preload" href="/blog/assets/js/app.5e6105f6.js" as="script"><link rel="preload" href="/blog/assets/js/2.132bf881.js" as="script"><link rel="preload" href="/blog/assets/js/41.fb61ce15.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.604fb0cb.js"><link rel="prefetch" href="/blog/assets/js/11.ccdd06c0.js"><link rel="prefetch" href="/blog/assets/js/12.9a1ac74e.js"><link rel="prefetch" href="/blog/assets/js/13.203431fd.js"><link rel="prefetch" href="/blog/assets/js/14.1f27c0cc.js"><link rel="prefetch" href="/blog/assets/js/15.4b913f99.js"><link rel="prefetch" href="/blog/assets/js/16.c21bded6.js"><link rel="prefetch" href="/blog/assets/js/17.d08b4738.js"><link rel="prefetch" href="/blog/assets/js/18.ce56af00.js"><link rel="prefetch" href="/blog/assets/js/19.d1c81d35.js"><link rel="prefetch" href="/blog/assets/js/20.ac71a316.js"><link rel="prefetch" href="/blog/assets/js/21.3cc5e5a9.js"><link rel="prefetch" href="/blog/assets/js/22.50e37bfd.js"><link rel="prefetch" href="/blog/assets/js/23.4ba17918.js"><link rel="prefetch" href="/blog/assets/js/24.dcfe9fe3.js"><link rel="prefetch" href="/blog/assets/js/25.981000dd.js"><link rel="prefetch" href="/blog/assets/js/26.834e1803.js"><link rel="prefetch" href="/blog/assets/js/27.740f7888.js"><link rel="prefetch" href="/blog/assets/js/28.2c57830f.js"><link rel="prefetch" href="/blog/assets/js/29.b6368e20.js"><link rel="prefetch" href="/blog/assets/js/3.e16cad7f.js"><link rel="prefetch" href="/blog/assets/js/30.a22e1ddc.js"><link rel="prefetch" href="/blog/assets/js/31.16bf1d70.js"><link rel="prefetch" href="/blog/assets/js/32.af9e02a9.js"><link rel="prefetch" href="/blog/assets/js/33.27b0055e.js"><link rel="prefetch" href="/blog/assets/js/34.e2a241bf.js"><link rel="prefetch" href="/blog/assets/js/35.ddd0dea0.js"><link rel="prefetch" href="/blog/assets/js/36.438f3b19.js"><link rel="prefetch" href="/blog/assets/js/37.f2fd11ff.js"><link rel="prefetch" href="/blog/assets/js/38.738f6175.js"><link rel="prefetch" href="/blog/assets/js/39.9aa47a6c.js"><link rel="prefetch" href="/blog/assets/js/4.9f518c74.js"><link rel="prefetch" href="/blog/assets/js/40.325140d2.js"><link rel="prefetch" href="/blog/assets/js/42.c6ed6da9.js"><link rel="prefetch" href="/blog/assets/js/43.8a8d7294.js"><link rel="prefetch" href="/blog/assets/js/44.88ae86f7.js"><link rel="prefetch" href="/blog/assets/js/45.b3a6bbf3.js"><link rel="prefetch" href="/blog/assets/js/46.8881af4a.js"><link rel="prefetch" href="/blog/assets/js/47.c1e42072.js"><link rel="prefetch" href="/blog/assets/js/48.576d29a7.js"><link rel="prefetch" href="/blog/assets/js/49.44977d25.js"><link rel="prefetch" href="/blog/assets/js/5.8369cf44.js"><link rel="prefetch" href="/blog/assets/js/50.7e14e22c.js"><link rel="prefetch" href="/blog/assets/js/51.35d83ae2.js"><link rel="prefetch" href="/blog/assets/js/52.c88044e4.js"><link rel="prefetch" href="/blog/assets/js/53.78a7ad63.js"><link rel="prefetch" href="/blog/assets/js/54.25ad769c.js"><link rel="prefetch" href="/blog/assets/js/55.137bcd64.js"><link rel="prefetch" href="/blog/assets/js/56.0b3ee030.js"><link rel="prefetch" href="/blog/assets/js/57.f96267c7.js"><link rel="prefetch" href="/blog/assets/js/58.cadecae5.js"><link rel="prefetch" href="/blog/assets/js/59.303726b5.js"><link rel="prefetch" href="/blog/assets/js/6.67fb8021.js"><link rel="prefetch" href="/blog/assets/js/60.71b5b2a8.js"><link rel="prefetch" href="/blog/assets/js/61.5d87da52.js"><link rel="prefetch" href="/blog/assets/js/62.7300ba1c.js"><link rel="prefetch" href="/blog/assets/js/63.2112a51c.js"><link rel="prefetch" href="/blog/assets/js/64.f2067e66.js"><link rel="prefetch" href="/blog/assets/js/65.07d72c87.js"><link rel="prefetch" href="/blog/assets/js/66.b479e557.js"><link rel="prefetch" href="/blog/assets/js/7.5942b600.js"><link rel="prefetch" href="/blog/assets/js/8.75e87c72.js"><link rel="prefetch" href="/blog/assets/js/9.cb85a0b7.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.e60b25d8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">黄思博前端进阶</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/pages/knowledgeBase/" class="nav-link router-link-active">
+  知识库
+</a></div><div class="nav-item"><a href="/blog/pages/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/pages/question/" class="nav-link">
+  每日·一题
+</a></div><div class="nav-item"><a href="/blog/pages/summary/" class="nav-link">
+  个人总结
+</a></div><div class="nav-item"><a href="https://github.com/Bob-huang-gdut" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/pages/knowledgeBase/" class="nav-link router-link-active">
+  知识库
+</a></div><div class="nav-item"><a href="/blog/pages/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/blog/pages/question/" class="nav-link">
+  每日·一题
+</a></div><div class="nav-item"><a href="/blog/pages/summary/" class="nav-link">
+  个人总结
+</a></div><div class="nav-item"><a href="https://github.com/Bob-huang-gdut" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/pages/knowledgeBase/" aria-current="page" class="sidebar-link">知识库</a></li><li><a href="/blog/pages/knowledgeBase/html/" class="sidebar-link">html</a></li><li><a href="/blog/pages/knowledgeBase/css/" class="sidebar-link">css</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>js</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>小程序</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>qiankun</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>react</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/pages/knowledgeBase/react/1.html" class="sidebar-link">一、组件基础</a></li><li><a href="/blog/pages/knowledgeBase/react/2.html" class="sidebar-link">二、数据管理</a></li><li><a href="/blog/pages/knowledgeBase/react/3.html" class="sidebar-link">三、生命周期</a></li><li><a href="/blog/pages/knowledgeBase/react/4.html" class="sidebar-link">四、组件通信</a></li><li><a href="/blog/pages/knowledgeBase/react/5.html" class="sidebar-link">五、路由</a></li><li><a href="/blog/pages/knowledgeBase/react/6.html" class="sidebar-link">六、Redux</a></li><li><a href="/blog/pages/knowledgeBase/react/7.html" aria-current="page" class="active sidebar-link">七、Hooks</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/pages/knowledgeBase/react/8.html" class="sidebar-link">八、虚拟DOM</a></li><li><a href="/blog/pages/knowledgeBase/react/9.html" class="sidebar-link">九、其他</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ts</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/blog/pages/knowledgeBase/browser/" class="sidebar-link">浏览器</a></li><li><a href="/blog/pages/knowledgeBase/network/" class="sidebar-link">计算机网络</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写代码</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端安全</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="_1-对-react-hook-的理解-它的实现原理是什么"><a href="#_1-对-react-hook-的理解-它的实现原理是什么" class="header-anchor">#</a> 1. 对 React Hook 的理解，它的实现原理是什么</h3> <p>React-Hooks 是 React 团队在 React 组件开发实践中，逐渐认知到的一个改进点，这背后其实涉及对<strong>类组件</strong>和<strong>函数组件</strong>两种组件形式的思考和侧重。</p> <p><strong>（1）类组件：</strong> 所谓类组件，就是基于 ES6 Class 这种写法，通过继承 React.Component 得来的 React 组件。以下是一个类组件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class DemoClass extends React.Component {
+  state = {
+    text: &quot;&quot;
+  };
+  componentDidMount() {
+    //...
+  }
+  changeText = (newText) =&gt; {
+    this.setState({
+      text: newText
+    });
+  };
+
+  render() {
+    return (
+      &lt;div className=&quot;demoClass&quot;&gt;
+        &lt;p&gt;{this.state.text}&lt;/p&gt;
+        &lt;button onClick={this.changeText}&gt;修改&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>可以看出，React 类组件内部预置了相当多的“现成的东西”等着我们去调度/定制，state 和生命周期就是这些“现成东西”中的典型。要想得到这些东西，难度也不大，只需要继承一个 React.Component 即可。</p> <p>当然，这也是类组件的一个不便，它太繁杂了，对于解决许多问题来说，编写一个类组件实在是一个过于复杂的姿势。复杂的姿势必然带来高昂的理解成本，这也是我们所不想看到的。除此之外，由于开发者编写的逻辑在封装后是和组件粘在一起的，这就使得<strong>类组件内部的逻辑难以实现拆分和复用。</strong></p> <p><strong>（2）函数组件</strong>：函数组件就是以函数的形态存在的 React 组件。早期并没有 React-Hooks，函数组件内部无法定义和维护 state，因此它还有一个别名叫“无状态组件”。以下是一个函数组件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function DemoFunction(props) {
+  const { text } = props
+  return (
+    &lt;div className=&quot;demoFunction&quot;&gt;
+      &lt;p&gt;{`函数组件接收的内容：[${text}]`}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>相比于类组件，函数组件肉眼可见的特质自然包括轻量、灵活、易于组织和维护、较低的学习成本等。</p> <p>通过对比，从形态上可以对两种组件做区分，它们之间的区别如下：</p> <ul><li>类组件需要继承 class，函数组件不需要；</li> <li>类组件可以访问生命周期方法，函数组件不能；</li> <li>类组件中可以获取到实例化后的 this，并基于这个 this 做各种各样的事情，而函数组件不可以；</li> <li>类组件中可以定义并维护 state（状态），而函数组件不可以；</li></ul> <p>除此之外，还有一些其他的不同。通过上面的区别，我们不能说谁好谁坏，它们各有自己的优势。在 React-Hooks 出现之前，<strong>类组件的能力边界明显强于函数组件。</strong></p> <p>实际上，类组件和函数组件之间，是面向对象和函数式编程这两套不同的设计思想之间的差异。而函数组件更加契合 React 框架的设计理念： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb5f01cfc83a48089e969f6443cb104b~tplv-k3u1fbpfcp-zoom-1.image" alt="image.png"> React 组件本身的定位就是函数，一个输入数据、输出 UI 的函数。作为开发者，我们编写的是声明式的代码，而 React 框架的主要工作，就是及时地把声明式的代码转换为命令式的 DOM 操作，把数据层面的描述映射到用户可见的 UI 变化中去。这就意味着从原则上来讲，React 的数据应该总是紧紧地和渲染绑定在一起的，而类组件做不到这一点。<strong>函数组件就真正地将数据和渲染绑定到了一起。函数组件是一个更加匹配其设计理念、也更有利于逻辑拆分与重用的组件表达形式。</strong></p> <p>为了能让开发者更好的的去编写函数式组件。于是，React-Hooks 便应运而生。</p> <p>React-Hooks 是一套能够使函数组件更强大、更灵活的“钩子”。</p> <p>函数组件比起类组件少了很多东西，比如生命周期、对 state 的管理等。这就给函数组件的使用带来了非常多的局限性，导致我们并不能使用函数这种形式，写出一个真正的全功能的组件。而React-Hooks 的出现，就是为了帮助函数组件补齐这些（相对于类组件来说）缺失的能力。</p> <p>如果说函数组件是一台轻巧的快艇，那么 React-Hooks 就是一个内容丰富的零部件箱。“重装战舰”所预置的那些设备，这个箱子里基本全都有，同时它还不强制你全都要，而是允许你自由地选择和使用你需要的那些能力，然后将这些能力以 Hook（钩子）的形式“钩”进你的组件里，从而定制出一个最适合你的“专属战舰”。</p> <h3 id="_2-为什么-usestate-要使用数组而不是对象"><a href="#_2-为什么-usestate-要使用数组而不是对象" class="header-anchor">#</a> 2. 为什么 useState 要使用数组而不是对象</h3> <p>useState 的用法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const [count, setCount] = useState(0)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>可以看到 useState 返回的是一个数组，那么为什么是返回数组而不是返回对象呢？</p> <p>这里用到了解构赋值，所以先来看一下ES6 的解构赋值：</p> <h5 id="数组的解构赋值"><a href="#数组的解构赋值" class="header-anchor">#</a> 数组的解构赋值</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>const foo = [1, 2, 3];
+const [one, two, three] = foo;
+console.log(one);	// 1
+console.log(two);	// 2
+console.log(three);	// 3
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h5 id="对象的解构赋值"><a href="#对象的解构赋值" class="header-anchor">#</a> 对象的解构赋值</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>const user = {
+  id: 888,
+  name: &quot;xiaoxin&quot;
+};
+const { id, name } = user;
+console.log(id);	// 888
+console.log(name);	// &quot;xiaoxin&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>看完这两个例子，答案应该就出来了：</p> <ul><li>如果 useState 返回的是数组，那么使用者可以对数组中的元素命名，代码看起来也比较干净</li> <li>如果 useState 返回的是对象，在解构对象的时候必须要和 useState 内部实现返回的对象同名，想要使用多次的话，必须得设置别名才能使用返回值</li></ul> <p>下面来看看如果 useState 返回对象的情况：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 第一次使用
+const { state, setState } = useState(false);
+// 第二次使用
+const { state: counter, setState: setCounter } = useState(0) 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这里可以看到，返回对象的使用方式还是挺麻烦的，更何况实际项目中会使用的更频繁。 <strong>总结：<strong>useState 返回的是 array 而不是 object 的原因就是为了</strong>降低使用的复杂度</strong>，返回数组的话可以直接根据顺序解构，而返回对象的话要想使用多次就需要定义别名了。</p> <h3 id="_3-react-hooks-解决了哪些问题"><a href="#_3-react-hooks-解决了哪些问题" class="header-anchor">#</a> 3. React Hooks 解决了哪些问题？</h3> <p>React Hooks 主要解决了以下问题：</p> <p><strong>（1）在组件之间复用状态逻辑很难</strong></p> <p>React 没有提供将可复用性行为“附加”到组件的途径（例如，把组件连接到 store）解决此类问题可以使用 render props 和 高阶组件。但是这类方案需要重新组织组件结构，这可能会很麻烦，并且会使代码难以理解。由 providers，consumers，高阶组件，render props 等其他抽象层组成的组件会形成“嵌套地狱”。尽管可以在 DevTools 过滤掉它们，但这说明了一个更深层次的问题：React 需要为共享状态逻辑提供更好的原生途径。</p> <p>可以使用 Hook 从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。Hook 使我们在无需修改组件结构的情况下复用状态逻辑。 这使得在组件间或社区内共享 Hook 变得更便捷。</p> <p><strong>（2）复杂组件变得难以理解</strong></p> <p>在组件中，每个生命周期常常包含一些不相关的逻辑。例如，组件常常在 componentDidMount 和 componentDidUpdate 中获取数据。但是，同一个 componentDidMount 中可能也包含很多其它的逻辑，如设置事件监听，而之后需在 componentWillUnmount 中清除。相互关联且需要对照修改的代码被进行了拆分，而完全不相关的代码却在同一个方法中组合在一起。如此很容易产生 bug，并且导致逻辑不一致。</p> <p>在多数情况下，不可能将组件拆分为更小的粒度，因为状态逻辑无处不在。这也给测试带来了一定挑战。同时，这也是很多人将 React 与状态管理库结合使用的原因之一。但是，这往往会引入了很多抽象概念，需要你在不同的文件之间来回切换，使得复用变得更加困难。</p> <p>为了解决这个问题，Hook 将组件中相互关联的部分拆分成更小的函数（比如设置订阅或请求数据），而并非强制按照生命周期划分。你还可以使用 reducer 来管理组件的内部状态，使其更加可预测。</p> <p><strong>（3）难以理解的 class</strong></p> <p>除了代码复用和代码管理会遇到困难外，class 是学习 React 的一大屏障。我们必须去理解 JavaScript 中 this 的工作方式，这与其他语言存在巨大差异。还不能忘记绑定事件处理器。没有稳定的语法提案，这些代码非常冗余。大家可以很好地理解 props，state 和自顶向下的数据流，但对 class 却一筹莫展。即便在有经验的 React 开发者之间，对于函数组件与 class 组件的差异也存在分歧，甚至还要区分两种组件的使用场景。</p> <p>为了解决这些问题，Hook 使你在非 class 的情况下可以使用更多的 React 特性。 从概念上讲，React 组件一直更像是函数。而 Hook 则拥抱了函数，同时也没有牺牲 React 的精神原则。Hook 提供了问题的解决方案，无需学习复杂的函数式或响应式编程技术</p> <h3 id="_4-react-hook-的使用限制有哪些"><a href="#_4-react-hook-的使用限制有哪些" class="header-anchor">#</a> 4. React Hook 的使用限制有哪些？</h3> <p>React Hooks 的限制主要有两条：</p> <ul><li>不要在循环、条件或嵌套函数中调用 Hook；</li> <li>在 React 的函数组件中调用 Hook。</li></ul> <p>那为什么会有这样的限制呢？Hooks 的设计初衷是为了改进 React 组件的开发模式。在旧有的开发模式下遇到了三个问题。</p> <ul><li>组件之间难以复用状态逻辑。过去常见的解决方案是高阶组件、render props 及状态管理框架。</li> <li>复杂的组件变得难以理解。生命周期函数与业务逻辑耦合太深，导致关联部分难以拆分。</li> <li>人和机器都很容易混淆类。常见的有 this 的问题，但在 React 团队中还有类难以优化的问题，希望在编译优化层面做出一些改进。</li></ul> <p>这三个问题在一定程度上阻碍了 React 的后续发展，所以为了解决这三个问题，Hooks <strong>基于函数组件</strong>开始设计。然而第三个问题决定了 Hooks 只支持函数组件。</p> <p>那为什么不要在循环、条件或嵌套函数中调用 Hook 呢？因为 Hooks 的设计是基于数组实现。在调用时按顺序加入数组中，如果使用循环、条件或嵌套函数很有可能导致数组取值错位，执行错误的 Hook。当然，实质上 React 的源码里不是数组，是链表。</p> <p>这些限制会在编码上造成一定程度的心智负担，新手可能会写错，为了避免这样的情况，可以引入 ESLint 的 Hooks 检查插件进行预防。</p> <h3 id="_5-useeffect-与-uselayouteffect-的区别"><a href="#_5-useeffect-与-uselayouteffect-的区别" class="header-anchor">#</a> 5. useEffect 与 useLayoutEffect 的区别</h3> <p><strong>（1）共同点</strong></p> <ul><li><strong>运用效果：</strong> useEffect 与 useLayoutEffect 两者都是用于处理副作用，这些副作用包括改变 DOM、设置订阅、操作定时器等。在函数组件内部操作副作用是不被允许的，所以需要使用这两个函数去处理。</li> <li><strong>使用方式：</strong> useEffect 与 useLayoutEffect 两者底层的函数签名是完全一致的，都是调用的 mountEffectImpl方法，在使用上也没什么差异，基本可以直接替换。</li></ul> <p><strong>（2）不同点</strong></p> <ul><li><strong>使用场景：</strong> useEffect 在 React 的渲染过程中是被异步调用的，用于绝大多数场景；而 useLayoutEffect 会在所有的 DOM 变更之后同步调用，主要用于处理 DOM 操作、调整样式、避免页面闪烁等问题。也正因为是同步处理，所以需要避免在 useLayoutEffect 做计算量较大的耗时任务从而造成阻塞。</li> <li><strong>使用效果：</strong> useEffect是按照顺序执行代码的，改变屏幕像素之后执行（先渲染，后改变DOM），当改变屏幕内容时可能会产生闪烁；useLayoutEffect是改变屏幕像素之前就执行了（会推迟页面显示的事件，先改变DOM后渲染），不会产生闪烁。<strong>useLayoutEffect总是比useEffect先执行。</strong></li></ul> <p>在未来的趋势上，两个 API 是会长期共存的，暂时没有删减合并的计划，需要开发者根据场景去自行选择。React 团队的建议非常实用，如果实在分不清，先用 useEffect，一般问题不大；如果页面有异常，再直接替换为 useLayoutEffect 即可。</p> <h3 id="_6-react-hooks在平时开发中需要注意的问题和原因"><a href="#_6-react-hooks在平时开发中需要注意的问题和原因" class="header-anchor">#</a> 6. React Hooks在平时开发中需要注意的问题和原因</h3> <p>（1）<strong>不要在循环，条件或嵌套函数中调用Hook，必须始终在 React函数的顶层使用Hook</strong></p> <p>这是因为React需要利用调用顺序来正确更新相应的状态，以及调用相应的钩子函数。一旦在循环或条件分支语句中调用Hook，就容易导致调用顺序的不一致性，从而产生难以预料到的后果。</p> <p><strong>（2）使用useState时候，使用push，pop，splice等直接更改数组对象的坑</strong></p> <p>使用push直接更改数组无法获取到新值，应该采用析构方式，但是在class里面不会有这个问题。代码示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Indicatorfilter() {
+  let [num,setNums] = useState([0,1,2,3])
+  const test = () =&gt; {
+    // 这里坑是直接采用push去更新num
+    // setNums(num)是无法更新num的
+    // 必须使用num = [...num ,1]
+    num.push(1)
+    // num = [...num ,1]
+    setNums(num)
+  }
+return (
+    &lt;div className='filter'&gt;
+      &lt;div onClick={test}&gt;测试&lt;/div&gt;
+        &lt;div&gt;
+          {num.map((item,index) =&gt; (
+              &lt;div key={index}&gt;{item}&lt;/div&gt;
+          ))}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  )
+}
+
+class Indicatorfilter extends React.Component&lt;any,any&gt;{
+  constructor(props:any){
+      super(props)
+      this.state = {
+          nums:[1,2,3]
+      }
+      this.test = this.test.bind(this)
+  }
+
+  test(){
+      // class采用同样的方式是没有问题的
+      this.state.nums.push(1)
+      this.setState({
+          nums: this.state.nums
+      })
+  }
+
+  render(){
+      let {nums} = this.state
+      return(
+          &lt;div&gt;
+              &lt;div onClick={this.test}&gt;测试&lt;/div&gt;
+                  &lt;div&gt;
+                      {nums.map((item:any,index:number) =&gt; (
+                          &lt;div key={index}&gt;{item}&lt;/div&gt;
+                      ))}
+                  &lt;/div&gt;
+          &lt;/div&gt;
+
+      )
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br></div></div><p>（3）<strong>useState设置状态的时候，只有第一次生效，后期需要更新状态，必须通过useEffect</strong></p> <p>TableDeail是一个公共组件，在调用它的父组件里面，我们通过set改变columns的值，以为传递给TableDeail 的 columns是最新的值，所以tabColumn每次也是最新的值，但是实际tabColumn是最开始的值，不会随着columns的更新而更新：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const TableDeail = ({
+    columns,
+}:TableData) =&gt; {
+    const [tabColumn, setTabColumn] = useState(columns) 
+}
+
+// 正确的做法是通过useEffect改变这个值
+const TableDeail = ({
+    columns,
+}:TableData) =&gt; {
+    const [tabColumn, setTabColumn] = useState(columns) 
+    useEffect(() =&gt;{setTabColumn(columns)},[columns])
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>（4）善用useCallback</strong></p> <p>父组件传递给子组件事件句柄时，如果我们没有任何参数变动可能会选用useMemo。但是每一次父组件渲染子组件即使没变化也会跟着渲染一次。</p> <p><strong>（5）不要滥用useContext</strong></p> <p>可以使用基于 useContext 封装的状态管理工具。</p> <h3 id="_7-react-hooks-和生命周期的关系"><a href="#_7-react-hooks-和生命周期的关系" class="header-anchor">#</a> 7. React Hooks 和生命周期的关系？</h3> <p><strong>函数组件</strong> 的本质是函数，没有 state 的概念的，因此<strong>不存在生命周期</strong>一说，仅仅是一个 <strong>render 函数</strong>而已。 但是引入 <strong>Hooks</strong> 之后就变得不同了，它能让组件在不使用 class 的情况下拥有 state，所以就有了生命周期的概念，所谓的生命周期其实就是 <code>useState</code>、 <code>useEffect()</code> 和 <code>useLayoutEffect()</code> 。</p> <p>即：<strong>Hooks 组件（使用了Hooks的函数组件）有生命周期，而函数组件（未使用Hooks的函数组件）是没有生命周期的</strong>。</p> <p>下面是具体的 class 与 Hooks 的<strong>生命周期对应关系</strong>：</p> <ul><li><code>constructor</code>：函数组件不需要构造函数，可以通过调用 <code>**useState 来初始化 state**</code>。如果计算的代价比较昂贵，也可以传一个函数给 <code>useState</code>。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const [num, UpdateNum] = useState(0)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li><code>getDerivedStateFromProps</code>：一般情况下，我们不需要使用它，可以在<strong>渲染过程中更新 state</strong>，以达到实现 <code>getDerivedStateFromProps</code> 的目的。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>function ScrollView({row}) {
+  let [isScrollingDown, setIsScrollingDown] = useState(false);
+  let [prevRow, setPrevRow] = useState(null);
+  if (row !== prevRow) {
+    // Row 自上次渲染以来发生过改变。更新 isScrollingDown。
+    setIsScrollingDown(prevRow !== null &amp;&amp; row &gt; prevRow);
+    setPrevRow(row);
+  }
+  return `Scrolling down: ${isScrollingDown}`;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>React 会立即退出第一次渲染并用更新后的 state 重新运行组件以避免耗费太多性能。</p> <ul><li><code>shouldComponentUpdate</code>：可以用 <code>**React.memo**</code> 包裹一个组件来对它的 <code>props</code> 进行浅比较</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const Button = React.memo((props) =&gt; {  // 具体的组件});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>注意：<code>**React.memo 等效于 **``**PureComponent**</code>，它只浅比较 props。这里也可以使用 <code>useMemo</code> 优化每一个节点。</p> <ul><li><code>render</code>：这是函数组件体本身。</li> <li><code>componentDidMount</code>, <code>componentDidUpdate</code>： <code>useLayoutEffect</code> 与它们两的调用阶段是一样的。但是，我们推荐你<strong>一开始先用 useEffect</strong>，只有当它出问题的时候再尝试使用 <code>useLayoutEffect</code>。<code>useEffect</code> 可以表达所有这些的组合。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// componentDidMount
+useEffect(()=&gt;{
+  // 需要在 componentDidMount 执行的内容
+}, [])
+useEffect(() =&gt; { 
+  // 在 componentDidMount，以及 count 更改时 componentDidUpdate 执行的内容
+  document.title = `You clicked ${count} times`; 
+  return () =&gt; {
+    // 需要在 count 更改时 componentDidUpdate（先于 document.title = ... 执行，遵守先清理后更新）
+    // 以及 componentWillUnmount 执行的内容       
+  } // 当函数中 Cleanup 函数会按照在代码中定义的顺序先后执行，与函数本身的特性无关
+}, [count]); // 仅在 count 更改时更新
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p><strong>请记得 React 会等待浏览器完成画面渲染之后才会延迟调用 ，因此会使得额外操作很方便</strong></p> <ul><li><code>componentWillUnmount</code>：相当于 <code>useEffect</code>里面返回的 <code>cleanup</code> 函数</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// componentDidMount/componentWillUnmount
+useEffect(()=&gt;{
+  // 需要在 componentDidMount 执行的内容
+  return function cleanup() {
+    // 需要在 componentWillUnmount 执行的内容      
+  }
+}, [])
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ul><li><code>componentDidCatch</code> and <code>getDerivedStateFromError</code>：目前<strong>还没有</strong>这些方法的 Hook 等价写法，但很快会加上。</li></ul> <table><thead><tr><th><strong>class 组件</strong></th> <th><strong>Hooks 组件</strong></th></tr></thead> <tbody><tr><td>constructor</td> <td>useState</td></tr> <tr><td>getDerivedStateFromProps</td> <td>useState 里面 update 函数</td></tr> <tr><td>shouldComponentUpdate</td> <td>useMemo</td></tr> <tr><td>render</td> <td>函数本身</td></tr> <tr><td>componentDidMount</td> <td>useEffect</td></tr> <tr><td>componentDidUpdate</td> <td>useEffect</td></tr> <tr><td>componentWillUnmount</td> <td>useEffect 里面返回的函数</td></tr> <tr><td>componentDidCatch</td> <td>无</td></tr> <tr><td>getDerivedStateFromError</td> <td>无</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/pages/knowledgeBase/react/6.html" class="prev">
+        六、Redux
+      </a></span> <span class="next"><a href="/blog/pages/knowledgeBase/react/8.html">
+        八、虚拟DOM
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.5e6105f6.js" defer></script><script src="/blog/assets/js/2.132bf881.js" defer></script><script src="/blog/assets/js/41.fb61ce15.js" defer></script>
+  </body>
+</html>

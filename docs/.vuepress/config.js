@@ -121,6 +121,10 @@ module.exports = {
             ['react/3.md', '三、生命周期'],
             ['react/4.md', '四、组件通信'],
             ['react/5.md', '五、路由'],
+            ['react/6.md', '六、Redux'],
+            ['react/7.md', '七、Hooks'],
+            ['react/8.md', '八、虚拟DOM'],
+            ['react/9.md', '九、其他'],
           ]
         },
         {
@@ -163,7 +167,13 @@ module.exports = {
         },
         {
           title: '手写代码',
-          path: '/pages/knowledgeBase/code/',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['code/1.md', '一、JavaScript基础'],
+            ['code/2.md', '二、数据处理'],
+            ['code/3.md', '三、应用场景'],
+          ]
         },
         {
           title: '前端安全',
