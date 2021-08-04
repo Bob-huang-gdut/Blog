@@ -103,12 +103,13 @@ module.exports = {
           ]
         },
         {
-          title: 'qiankun',
+          title: '微前端',
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['qiankun/1.md', 'qiankun1'],
-            ['qiankun/2.md', '模块联邦'],
+            ['微前端/1.md', 'qiankun'],
+            ['微前端/2.md', 'single-spa'],
+            ['微前端/3.md', '模块联邦'],
           ]
         },
         {
