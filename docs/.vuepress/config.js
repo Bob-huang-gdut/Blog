@@ -129,12 +129,8 @@ module.exports = {
           ]
         },
         {
-          title: 'ts',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['ts/1.md', 'ts'],
-          ]
+          title: 'typeScript',
+          path: '/pages/knowledgeBase/typeScript/',
         },
         {
           title: 'vue',
@@ -163,7 +159,15 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['dataStructure/1.md', '数据结构'],
+            ['数据结构/1.md', '数据结构'],
+          ]
+        },
+        {
+          title: 'rollup',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['rollup/1.md', 'rollup'],
           ]
         },
         {
