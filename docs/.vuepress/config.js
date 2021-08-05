@@ -9,7 +9,7 @@ module.exports = {
     ['link',
       {
         rel: 'icon',
-        href: '/logo.png'
+        href: '/images/logo.png'
       }
     ],
     ['script', {
@@ -24,6 +24,7 @@ module.exports = {
   ],
   serviceWorker: true,
   themeConfig: {
+    logo: '/images/logo.png', // 注意图片放在 public 文件夹下
     sidebar: 'auto',
     navbar: true,
     search: true,
