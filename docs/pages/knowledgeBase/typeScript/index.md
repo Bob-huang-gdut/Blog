@@ -1572,4 +1572,17 @@ compilerOptions 每个选项的详细说明如下：
 }
 ```
 
+# 十五、有什么优势
+
+类型断言：
+- 静态输入：静态类型化是一种功能，可以在开发人员编写脚本时检测错误。
+- 大型的开发项目：使用TypeScript工具来进行重构更变的容易、快捷。
+- 更好的协作：类型安全是在编码期间检测错误，而不是在编译项目时检测错误。
+类型转换 尖括号 和 as
+
+interface 和 type的区别
+- interface 只能定义对象类型。type声明可以声明任何类型。
+- interface 能够声明合并，两个相同接口会合并。Type声明合并会报错
+- type可以类型推导
+
 看到这里的读者都是“真爱”，如果你还意犹未尽，那就来看看本人整理的 Github 上 1.5K+ 的开源项目：[awesome-typescript](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fsemlinker%2Fawesome-typescript "https://github.com/semlinker/awesome-typescript")。
