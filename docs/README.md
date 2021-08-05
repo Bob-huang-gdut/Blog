@@ -1,8 +1,8 @@
 ---
 home: true
-heroImage: /logo.png
-heroText: 黄思博前端进阶之路
-tagline: 高级前端进阶之路
+heroImage: /images/logo.png
+heroText: 前端进阶之路
+tagline: 查缺补漏，厚积薄发
 actionText: 马上进入 →
 actionLink: /pages/knowledgeBase/
 features:
