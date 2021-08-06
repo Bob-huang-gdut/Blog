@@ -1,5 +1,5 @@
 module.exports = {
-  title: '黄思博前端进阶', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
+  title: '黄思博 blog', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
   description: '前端工程师,前端自学,高级前端工程师,中高级前端工程师,前端进阶知识,前端职业发展', // meta 中的描述文字，用于SEO
   base: '/blog/',
   markdown: {
@@ -79,11 +79,7 @@ module.exports = {
         },
         {
           title: '设计模式',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['designMode/1.md', '设计模式'],
-          ]
+          path: '/pages/knowledgeBase/设计模式/',
         },
         {
           title: '小程序',
@@ -217,7 +213,9 @@ module.exports = {
         sidebarDepth: 2,
         children: [
           ['folder1/1.md', '1.md'],
-          ['folder1/2.md', '2.md']
+          ['folder1/2.md', '2.md'],
+          ['folder1/3.md', '开发原则'],
+          ['folder1/3.md', '项目研发流程规范']
         ]
       }, {
         title: 'ts',
