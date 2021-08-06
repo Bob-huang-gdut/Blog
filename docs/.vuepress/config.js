@@ -215,7 +215,7 @@ module.exports = {
           ['folder1/1.md', '1.md'],
           ['folder1/2.md', '2.md'],
           ['folder1/3.md', '开发原则'],
-          ['folder1/3.md', '项目研发流程规范']
+          ['folder1/4.md', '项目研发流程规范']
         ]
       }, {
         title: 'ts',
