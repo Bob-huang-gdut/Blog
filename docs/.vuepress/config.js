@@ -82,11 +82,19 @@ module.exports = {
           path: '/pages/knowledgeBase/设计模式/',
         },
         {
+          title: 'web脚手架',
+          path: '/pages/knowledgeBase/cli/',
+        },
+        {
           title: '小程序',
           collapsable: true,
           sidebarDepth: 2,
           children: [
-            ['miniProgram/1.md', '小程序1'],
+            ['miniProgram/原生微信小程序/1.md', '原生微信小程序'],
+            ['miniProgram/mpvue/1.md', 'mpvue'],
+            ['miniProgram/taro/1.md', 'taro'],
+            ['miniProgram/uni-app/1.md', 'uni-app'],
+            ['miniProgram/WePY/1.md', 'WePY'],
           ]
         },
         {
