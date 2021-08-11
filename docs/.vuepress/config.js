@@ -237,23 +237,19 @@ module.exports = {
         title: '个人总结',
         path: '/pages/summary/',
       }, {
-        title: 'js',
+        title: '文章',
         collapsable: true,
         sidebarDepth: 2,
         children: [
-          ['folder1/1.md', '1.md'],
-          ['folder1/2.md', '2.md'],
-          ['folder1/3.md', '开发原则'],
-          ['folder1/4.md', '项目研发流程规范']
+          ['1.md', '个人总结'],
+          ['2.md', '个人总结2'],
+          ['3.md', '开发原则'],
+          ['4.md', '面试题'],
+          ['5.md', '微前端技术方案'],
+          ['6.md', '断点续传方案'],
+          ['7.md', '个人总结3'],
         ]
-      }, {
-        title: 'ts',
-        collapsable: true,
-        sidebarDepth: 2,
-        children: [
-          ['folder2/3.md', '3.md'],
-        ]
-      }],
+      }]
     },
   },
   plugins: [
