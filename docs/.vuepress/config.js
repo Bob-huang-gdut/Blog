@@ -64,8 +64,33 @@ module.exports = {
           title: 'html',
           path: '/pages/knowledgeBase/html/',
         }, {
-          title: 'css',
-          path: '/pages/knowledgeBase/css/',
+          title: 'nginx',
+          path: '/pages/knowledgeBase/nginx/',
+        }, {
+          title: 'node',
+          path: '/pages/knowledgeBase/node/',
+        }, {
+          title: '移动端',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['移动端/1.md', '各类移动端技术对比总结'],
+            ['移动端/react-native/1.md', 'react-native'],
+            ['移动端/weex/1.md', 'weex'],
+            ['移动端/flutter/1.md', 'flutter'],
+            ['移动端/H5/1.md', 'H5'],
+          ]
+        }, {
+          title: '小程序',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            ['小程序/1.md', '各类小程序技术对比总结'],
+            ['小程序/原生微信小程序/1.md', '原生微信小程序'],
+            ['小程序/mpvue/1.md', 'mpvue'],
+            ['小程序/taro/1.md', 'taro'],
+            ['小程序/uni-app/1.md', 'uni-app'],
+          ]
         }, {
           title: 'js',
           collapsable: true,
@@ -83,19 +108,11 @@ module.exports = {
         },
         {
           title: 'web脚手架',
-          path: '/pages/knowledgeBase/cli/',
+          path: '/pages/knowledgeBase/web脚手架/',
         },
         {
-          title: '小程序',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['miniProgram/原生微信小程序/1.md', '原生微信小程序'],
-            ['miniProgram/mpvue/1.md', 'mpvue'],
-            ['miniProgram/taro/1.md', 'taro'],
-            ['miniProgram/uni-app/1.md', 'uni-app'],
-            ['miniProgram/WePY/1.md', 'WePY'],
-          ]
+          title: '数据可视化',
+          path: '/pages/knowledgeBase/数据可视化/',
         },
         {
           title: '性能优化',
@@ -153,11 +170,15 @@ module.exports = {
         },
         {
           title: '浏览器',
-          path: '/pages/knowledgeBase/browser/',
+          path: '/pages/knowledgeBase/浏览器/',
         },
         {
           title: '计算机网络',
           path: '/pages/knowledgeBase/network/',
+        },
+        {
+          title: '骨架屏',
+          path: '/pages/knowledgeBase/骨架屏/',
         },
         {
           title: '数据结构',
@@ -168,12 +189,8 @@ module.exports = {
           ]
         },
         {
-          title: 'rollup',
-          collapsable: true,
-          sidebarDepth: 2,
-          children: [
-            ['rollup/1.md', 'rollup'],
-          ]
+          title: '移动端适配',
+          path: '/pages/knowledgeBase/移动端适配/',
         },
         {
           title: '手写代码',
@@ -192,7 +209,11 @@ module.exports = {
           children: [
             ['security/1.md', '前端安全'],
           ]
-        }
+        },
+        {
+          title: 'docker',
+          path: '/pages/knowledgeBase/docker/',
+        },
       ],
       '/pages/algorithm/': [{
         title: '算法',
@@ -245,12 +266,5 @@ module.exports = {
     },
     '@vuepress/medium-zoom',
     '@vuepress/nprogress',
-    '@vuepress/pwa', {
-      serviceWorker: true,
-      updatePopup: {
-        message: "新的风暴已经出现",
-        buttonText: "盘他"
-      }
-    }
   ]
 }
