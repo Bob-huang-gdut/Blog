@@ -70,6 +70,9 @@ module.exports = {
           title: 'node',
           path: '/pages/knowledgeBase/node/',
         }, {
+          title: '监控SDK',
+          path: '/pages/knowledgeBase/监控SDK/',
+        }, {
           title: '移动端',
           collapsable: true,
           sidebarDepth: 2,
@@ -211,8 +214,8 @@ module.exports = {
           ]
         },
         {
-          title: 'docker',
-          path: '/pages/knowledgeBase/docker/',
+          title: 'Docker',
+          path: '/pages/knowledgeBase/Docker/',
         },
       ],
       '/pages/algorithm/': [{
@@ -248,6 +251,7 @@ module.exports = {
           ['5.md', '微前端技术方案'],
           ['6.md', '断点续传方案'],
           ['7.md', '个人总结3'],
+          ['组件库npm版本号管理策略.md', '组件库npm版本号管理策略'],
         ]
       }]
     },
